@@ -3,7 +3,7 @@ import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import validate from "./validate.jsx";
 import renderField from "./renderField.jsx";
-import {load as loadAccount} from "./account.jsx"
+import {prefill as loadData} from "./prefill.jsx"
 
 
 const data = {
@@ -20,9 +20,9 @@ class WizardFormFirstPage extends Component {
 
 	componentDidMount() {
 		this.setState({loading: true});
-		const {load} = this.props;
+		const {prefill} = this.props;
 		setTimeout(() => {
-			load(data);
+			prefill(data);
 			this.setState({loading: false});
 		}, 1500);
 	}
@@ -52,9 +52,9 @@ WizardFormFirstPage = reduxForm({
 
 WizardFormFirstPage = connect(
 	state => ({
-		initialValues: state.account.data // pull initial values from account reducer
+		initialValues: state.prefill.data // pull initial values from account reducer
 	}),
-	{load: loadAccount}               // bind account loading action creator
+	{prefill: loadData}               // bind account loading action creator
 )(WizardFormFirstPage);
 
 export default WizardFormFirstPage;

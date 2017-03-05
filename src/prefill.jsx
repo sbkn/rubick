@@ -1,4 +1,4 @@
-const LOAD = 'redux-form-examples/account/LOAD';
+const LOAD = "LOAD_DATA";
 
 const reducer = (state = {}, action) => {
 	switch (action.type) {
@@ -14,6 +14,6 @@ const reducer = (state = {}, action) => {
 /**
  * Simulates data loaded into this reducer from somewhere
  */
-export const load = data => ({type: LOAD, data});
+export const prefill = data => ({type: LOAD, data});
 
 export default reducer;
