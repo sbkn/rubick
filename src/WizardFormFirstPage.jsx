@@ -34,7 +34,7 @@ class WizardFormFirstPage extends Component {
 		super(props);
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.fetchData()
 	}
 
