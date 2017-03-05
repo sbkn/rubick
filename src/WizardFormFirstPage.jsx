@@ -56,6 +56,7 @@ WizardFormFirstPage = reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,        // <------ preserve form data
 	forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
+	enableReinitialize: true,  // <------ TOOK ME 3 HOURS TO FIND THIS M8 WAS NEEDED ..
 	validate
 })(WizardFormFirstPage);
 
