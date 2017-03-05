@@ -41,6 +41,7 @@ class WizardForm extends Component {
 				{page === 3 &&
 				<WizardFormThirdPage previousPage={this.previousPage} initialValues={this.props.initialValues}
 				                     onSubmit={onSubmit}/>}
+				<label>{this.props.isFetching ? "Fetching data.." : "Fetched data successfully." }</label>
 			</div>
 		)
 	}
@@ -48,7 +49,8 @@ class WizardForm extends Component {
 
 function mapStateToProps(state) {
 	return {
-		initialValues: state.prefill.data
+		initialValues: state.prefill.data,
+		isFetching: state.prefill.fetching
 	}
 }
 
