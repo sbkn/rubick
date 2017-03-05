@@ -2,11 +2,14 @@ import React, {Component} from "react";
 import WizardForm from "./WizardForm.jsx";
 import {Provider} from "react-redux";
 
-import {createStore, combineReducers} from "redux"
-import {reducer as formReducer} from "redux-form"
+import account from "./account.jsx";
+
+import {createStore, combineReducers} from "redux";
+import {reducer as formReducer} from "redux-form";
 
 const reducers = {
 	// ... your other reducers here ...
+	account: account,
 	form: formReducer     // <---- Mounted at "form"
 };
 const reducer = combineReducers(reducers);
