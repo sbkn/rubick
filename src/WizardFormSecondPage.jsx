@@ -28,9 +28,9 @@ const WizardFormSecondPage = (props) => {
 };
 
 export default reduxForm({
-	form: 'wizard',  //Form name is same
+	form: 'wizard',
 	destroyOnUnmount: false,
-	forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-	enableReinitialize: true,  // <------ TOOK ME 3 HOURS TO FIND THIS M8 WAS NEEDED ..
+	forceUnregisterOnUnmount: true,
+	enableReinitialize: true,
 	validate
 })(WizardFormSecondPage)

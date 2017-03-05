@@ -10,9 +10,8 @@ import WizardForm from "./WizardForm.jsx";
 
 
 const reducers = {
-	// ... your other reducers here ...
 	prefill: prefillReducer,
-	form: formReducer     // <---- Mounted at "form"
+	form: formReducer
 };
 const middleware = applyMiddleware(thunk, logger());
 const reducer = combineReducers(reducers);

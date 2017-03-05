@@ -48,13 +48,13 @@ class WizardForm extends Component {
 
 function mapStateToProps(state) {
 	return {
-		initialValues: state.prefill.data // pull initial values from prefill reducer
+		initialValues: state.prefill.data
 	}
 }
 
 WizardForm = connect(
 	mapStateToProps,
-	{fetchData}     // bind data loading action creator
+	{fetchData}
 )(WizardForm);
 
 WizardForm.propTypes = {
