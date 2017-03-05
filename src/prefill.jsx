@@ -1,14 +1,21 @@
-const prefillReducer = (state = {}, action) => {
+const initialState = {
+	data: {},
+	fetching: false,
+	error: null
+};
+
+const prefillReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "FETCH_DATA_START":
 			return {
-				data: {},
-				status: "FETCHING"
+				...state,
+				fetching: true
 			};
 		case "FETCH_DATA_FINISH":
 			return {
+				...state,
 				data: action.data,
-				status: "SUCCESS"
+				fetching: false
 			};
 		default:
 			return state

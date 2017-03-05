@@ -39,7 +39,6 @@ class WizardFormFirstPage extends Component {
 	}
 
 	render() {
-
 		const {handleSubmit} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
