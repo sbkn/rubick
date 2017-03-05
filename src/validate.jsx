@@ -1,6 +1,6 @@
 const validate = values => {
 	const errors = {};
-	/*if (!values.firstName) {
+	if (!values.firstName) {
 		errors.firstName = "Required"
 	}
 	if (!values.lastName) {
@@ -16,7 +16,7 @@ const validate = values => {
 	}
 	if (!values.favoriteColor) {
 		errors.favoriteColor = "Required"
-	 }*/
+	}
 	return errors
 };
 

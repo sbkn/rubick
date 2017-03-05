@@ -1,30 +1,14 @@
-import React from "react"
-import { Field, reduxForm } from "redux-form";
-import validate from "./validate.jsx"
-const  { DOM: { input } } = React;
+import React from 'react'
+import {Field, reduxForm} from 'redux-form'
+import validate from './validate.jsx'
+import renderField from './renderField.jsx'
 
 const WizardFormFirstPage = (props) => {
 	const { handleSubmit } = props;
 	return (
 		<form onSubmit={handleSubmit}>
-			<div>
-				<label>First Name</label>
-				<Field name="firstName" component = {firstName =>
-					<div>
-						<input type="text" {...firstName} placeholder="First Name"/>
-						{firstName.touched && firstName.error && <span>{firstName.error}</span>}
-					</div>
-				} />
-			</div>
-			<div>
-				<label>Last Name</label>
-				<Field name="lastName" component = {lastName =>
-					<div>
-						<input type="text" {...lastName} placeholder="Last Name"/>
-						{lastName.touched && lastName.error && <span>{lastName.error}</span>}
-					</div>
-				} />
-			</div>
+			<Field name="firstName" type="text" component={renderField} label="First Name"/>
+			<Field name="lastName" type="text" component={renderField} label="Last Name"/>
 			<div>
 				<button type="submit" className="next">Next</button>
 			</div>
@@ -33,7 +17,8 @@ const WizardFormFirstPage = (props) => {
 };
 
 export default reduxForm({
-	form: "wizard",              // <------ same form name
-	destroyOnUnmount: false,     // <------ preserve form data
+	form: 'wizard',                 // <------ same form name
+	destroyOnUnmount: false,        // <------ preserve form data
+	forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
 	validate
 })(WizardFormFirstPage)

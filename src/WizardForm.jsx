@@ -1,10 +1,9 @@
-import React, { Component, PropTypes } from "react"
-import WizardFormFirstPage from "./WizardFormFirstPage.jsx"
-import WizardFormSecondPage from "./WizardFormSecondPage.jsx"
-import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
+import React, {Component, PropTypes} from 'react'
+import WizardFormFirstPage from './WizardFormFirstPage.jsx'
+import WizardFormSecondPage from './WizardFormSecondPage.jsx'
+import WizardFormThirdPage from './WizardFormThirdPage.jsx'
 
 class WizardForm extends Component {
-
 	constructor(props) {
 		super(props);
 		this.nextPage = this.nextPage.bind(this);
@@ -24,8 +23,7 @@ class WizardForm extends Component {
 	render() {
 		const { onSubmit } = this.props;
 		const { page } = this.state;
-		return (
-			<div>
+		return (<div>
 				{page === 1 && <WizardFormFirstPage onSubmit={this.nextPage}/>}
 				{page === 2 && <WizardFormSecondPage previousPage={this.previousPage} onSubmit={this.nextPage}/>}
 				{page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={onSubmit}/>}
