@@ -13,11 +13,17 @@ const data = {
 
 class WizardFormFirstPage extends Component {
 
-	componentDidMount() {
+	constructor(props) {
+		super(props);
+		this.state = {loading: false};
+	}
 
+	componentDidMount() {
+		this.setState({loading: true});
 		const {load} = this.props;
 		setTimeout(() => {
 			load(data);
+			this.setState({loading: false});
 		}, 1500);
 	}
 
@@ -28,7 +34,9 @@ class WizardFormFirstPage extends Component {
 				<Field name="firstName" type="text" component={renderField} label="First Name"/>
 				<Field name="lastName" type="text" component={renderField} label="Last Name"/>
 				<div>
-					<button type="submit" className="next">Next</button>
+					{this.state.loading ? <label>Loading data...</label> :
+						<button type="submit" className="next">Next</button>}
+
 				</div>
 			</form>
 		)
