@@ -2,8 +2,12 @@ import React, {Component, PropTypes} from 'react'
 import WizardFormFirstPage from './WizardFormFirstPage.jsx'
 import WizardFormSecondPage from './WizardFormSecondPage.jsx'
 import WizardFormThirdPage from './WizardFormThirdPage.jsx'
+import fetchData from "./fetchData.jsx";
+import {connect} from "react-redux";
+
 
 class WizardForm extends Component {
+
 	constructor(props) {
 		super(props);
 		this.nextPage = this.nextPage.bind(this);
@@ -12,6 +16,11 @@ class WizardForm extends Component {
 			page: 1
 		}
 	}
+
+	componentWillMount() {
+		this.props.fetchData()
+	}
+
 	nextPage() {
 		this.setState({ page: this.state.page + 1 })
 	}
@@ -25,13 +34,28 @@ class WizardForm extends Component {
 		const { page } = this.state;
 		return (
 			<div>
-				{page === 1 && <WizardFormFirstPage onSubmit={this.nextPage}/>}
-				{page === 2 && <WizardFormSecondPage previousPage={this.previousPage} onSubmit={this.nextPage}/>}
-				{page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={onSubmit}/>}
+				{page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} initialValues={this.props.initialValues}/>}
+				{page === 2 &&
+				<WizardFormSecondPage previousPage={this.previousPage} initialValues={this.props.initialValues}
+				                      onSubmit={this.nextPage}/>}
+				{page === 3 &&
+				<WizardFormThirdPage previousPage={this.previousPage} initialValues={this.props.initialValues}
+				                     onSubmit={onSubmit}/>}
 			</div>
 		)
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		initialValues: state.prefill.data // pull initial values from prefill reducer
+	}
+}
+
+WizardForm = connect(
+	mapStateToProps,
+	{fetchData}     // bind data loading action creator
+)(WizardForm);
 
 WizardForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired

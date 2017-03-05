@@ -45,5 +45,6 @@ export default reduxForm({
 	form: 'wizard', //Form name is same
 	destroyOnUnmount: false,
 	forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
+	enableReinitialize: true,  // <------ TOOK ME 3 HOURS TO FIND THIS M8 WAS NEEDED ..
 	validate
 })(WizardFormThirdPage)
