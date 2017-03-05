@@ -25,13 +25,13 @@ const WizardFormThirdPage = (props) => {
 			<div>
 				<label htmlFor="employed">Employed</label>
 				<div>
-					<Field name="employed" id="employed" component={input} type="checkbox"/>
+					<Field name="employed" id="employed" component="input" type="checkbox"/>
 				</div>
 			</div>
 			<div>
 				<label>Notes</label>
 				<div>
-					<Field name="notes" component={textarea}/>
+					<Field name="notes" component="textarea"/>
 				</div>
 			</div>
 			<div>

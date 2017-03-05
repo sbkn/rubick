@@ -19,8 +19,8 @@ const WizardFormSecondPage = (props) => {
 			<div>
 				<label>Sex</label>
 				<div>
-					<label><Field name="sex" component={input} type="radio" value="male"/> Male</label>
-					<label><Field name="sex" component={input} type="radio" value="female"/> Female</label>
+					<label><Field name="sex" component="input" type="radio" value="male"/> Male</label>
+					<label><Field name="sex" component="input" type="radio" value="female"/> Female</label>
 					<Field name="sex" component={sex => sex.touched && sex.error ? <span>{sex.error}</span> : null}/>
 				</div>
 			</div>
