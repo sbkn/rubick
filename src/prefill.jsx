@@ -1,19 +1,18 @@
-const LOAD = "LOAD_DATA";
-
-const reducer = (state = {}, action) => {
+const prefillReducer = (state = {}, action) => {
 	switch (action.type) {
-		case LOAD:
+		case "FETCH_DATA_START":
 			return {
-				data: action.data
+				data: {},
+				status: "FETCHING"
+			};
+		case "FETCH_DATA_FINISH":
+			return {
+				data: action.data,
+				status: "SUCCESS"
 			};
 		default:
 			return state
 	}
 };
 
-/**
- * Simulates data loaded into this reducer from somewhere
- */
-export const prefill = data => ({type: LOAD, data});
-
-export default reducer;
+export default prefillReducer;

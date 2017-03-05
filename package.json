@@ -28,10 +28,13 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
+	"axios": "^0.15.3",
     "react": "15.2.1",
     "react-dom": "15.2.1",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "redux-form": "^6.5.0"
+	"redux-form": "^6.5.0",
+	"redux-logger": "^2.8.2",
+	"redux-thunk": "^2.2.0"
   }
 }
