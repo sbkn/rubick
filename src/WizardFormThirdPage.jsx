@@ -44,7 +44,7 @@ const WizardFormThirdPage = (props) => {
 export default reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
-	forceUnregisterOnUnmount: true,
+	//forceUnregisterOnUnmount: true,
 	keepDirtyOnReinitialize: true,
 	enableReinitialize: true,
 	validate
