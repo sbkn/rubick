@@ -2,23 +2,13 @@ import React from "react";
 import {reduxForm, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
 import validate from "../validate.jsx";
+import SummaryPage from "../components/SummaryPage.jsx";
 
 let WizardFormSummaryPage = (props) => {
 	const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber} = props;
 	return (
 		<form onSubmit={handleSubmit}>
-			<div>
-				<label htmlFor="fullName">Full Name</label>
-				<br/>
-				<label htmlFor="fullName">{fullName}</label>
-			</div>
-			<br/>
-
-			<div>
-				<label htmlFor="phoneNumber">Phone Number</label>
-				<br/>
-				<label htmlFor="phoneNumber">{phoneNumber}</label>
-			</div>
+			<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
 			<div>
 				<button type="button" className="previous"
 						onClick={previousPage}>Previous
