@@ -1,6 +1,6 @@
 import React from "react"
 import {Field, reduxForm} from "redux-form"
-import validate from "../validate.jsx"
+import validate from "../validate.js"
 
 const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
 

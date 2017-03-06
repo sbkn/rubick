@@ -1,7 +1,7 @@
 import React from "react";
 import {reduxForm, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
-import validate from "../validate.jsx";
+import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
 
 let WizardFormSummaryPage = (props) => {
