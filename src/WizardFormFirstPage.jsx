@@ -36,10 +36,10 @@ class WizardFormFirstPage extends Component {
 						<Field name="isNewCustomer" component={renderError}/>
 					</div>
 				</div>
-				{isNewCustomer && <Field name="conditionalText" type="text"
-										 component={renderField}
-										 label="Why are you here?"
-										 disabled={isFetching ? "disabled" : ""}/>}
+				{isNewCustomer === "true" && <Field name="conditionalText" type="text"
+				                                    component={renderField}
+				                                    label="Why are you here?"
+				                                    disabled={isFetching ? "disabled" : ""}/>}
 				<Field name="firstName" type="text" component={renderField}
 					   label="First Name"
 					   disabled={isFetching ? "disabled" : ""}/>
@@ -68,21 +68,29 @@ WizardFormFirstPage = reduxForm({
 	validate
 })(WizardFormFirstPage);
 
-const selector = formValueSelector("wizard");
-
 function mapStateToProps(state) {
-	const {isNewCustomer} = selector(state, "isNewCustomer");
 	return {
 		initialValues: state.prefill.data,
 		isFetching: state.prefill.fetching,
-		hasFetched: state.prefill.fetched,
-		isNewCustomer: isNewCustomer
+		hasFetched: state.prefill.fetched
 	}
 }
 
 WizardFormFirstPage = connect(
 	mapStateToProps,
 	{fetchData}
+)(WizardFormFirstPage);
+
+
+const selector = formValueSelector("wizard");
+
+WizardFormFirstPage = connect(
+	state => {
+		const isNewCustomer = selector(state, "isNewCustomer");
+		return {
+			isNewCustomer
+		}
+	}
 )(WizardFormFirstPage);
 
 export default WizardFormFirstPage;

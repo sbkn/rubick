@@ -5,7 +5,7 @@ import {reducer as formReducer} from "redux-form";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
-import prefillReducer from "./prefill.jsx";
+import prefillReducer from "./prefillReducer.jsx";
 import WizardForm from "./WizardForm.jsx";
 
 
