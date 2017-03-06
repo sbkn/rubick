@@ -38,7 +38,6 @@ class WizardFormFirstPage extends Component {
 WizardFormFirstPage = reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
-	//forceUnregisterOnUnmount: true,
 	keepDirtyOnReinitialize: true,
 	enableReinitialize: true,
 	validate

@@ -12,7 +12,7 @@ class WizardForm extends Component {
 		this.previousPage = this.previousPage.bind(this);
 		this.state = {
 			page: 1
-		}
+		};
 	}
 
 	nextPage() {
