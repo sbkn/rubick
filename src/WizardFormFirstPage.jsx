@@ -32,7 +32,9 @@ class WizardFormFirstPage extends Component {
 					   label="Phone number" normalize={normalizePhoneNumber}
 					   disabled={isFetching ? "disabled" : ""}/>
 				<div>
-					<button type="submit" className="next">Next</button>
+					<button type="submit" className="next"
+							disabled={isFetching ? "disabled" : ""}>Next
+					</button>
 				</div>
 				<label>{isFetching ? "Fetching data.." : "Fetched data successfully." }</label>
 			</form>
