@@ -39,7 +39,7 @@ class WizardForm extends Component {
 
 	render() {
 
-		const {onSubmit} = this.props;
+		const {onSubmit, initialValues, isFetching} = this.props;
 		const {page} = this.state;
 
 		return (
@@ -50,7 +50,8 @@ class WizardForm extends Component {
 					<label className="nav-label" onClick={() => this.goToPage(3)}>3</label>
 					<label className="nav-label" onClick={() => this.goToPage(4)}>4</label>
 				</div>
-				{page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} initialValues={this.props.initialValues}/>}
+				{page === 1 &&
+				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
 				{page === 2 &&
 				<WizardFormSecondPage previousPage={this.previousPage}
 				                      onSubmit={this.nextPage}/>}
