@@ -19,17 +19,22 @@ class WizardFormFirstPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit} = this.props;
+		const {handleSubmit, isFetching} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<Field name="firstName" type="text" component={renderField} label="First Name"/>
-				<Field name="lastName" type="text" component={renderField} label="Last Name"/>
+				<Field name="firstName" type="text" component={renderField}
+					   label="First Name"
+					   disabled={isFetching ? "disabled" : ""}/>
+				<Field name="lastName" type="text" component={renderField}
+					   label="Last Name"
+					   disabled={isFetching ? "disabled" : ""}/>
 				<Field name="phoneNumber" type="text" component={renderField}
-					   label="Phone number" normalize={normalizePhoneNumber}/>
+					   label="Phone number" normalize={normalizePhoneNumber}
+					   disabled={isFetching ? "disabled" : ""}/>
 				<div>
 					<button type="submit" className="next">Next</button>
 				</div>
-				<label>{this.props.isFetching ? "Fetching data.." : "Fetched data successfully." }</label>
+				<label>{isFetching ? "Fetching data.." : "Fetched data successfully." }</label>
 			</form>
 		)
 	};

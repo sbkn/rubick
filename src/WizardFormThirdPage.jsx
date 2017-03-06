@@ -15,7 +15,7 @@ const renderColorSelector = ({input, meta: {touched, error}}) => (
 );
 
 const WizardFormThirdPage = (props) => {
-	const { handleSubmit, pristine, previousPage, submitting } = props;
+	const {handleSubmit, previousPage} = props;
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
@@ -45,7 +45,6 @@ const WizardFormThirdPage = (props) => {
 export default reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
-	//forceUnregisterOnUnmount: true,
 	keepDirtyOnReinitialize: true,
 	enableReinitialize: true,
 	validate
