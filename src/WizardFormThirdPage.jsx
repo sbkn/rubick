@@ -45,6 +45,7 @@ export default reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
 	forceUnregisterOnUnmount: true,
-	//enableReinitialize: true,
+	keepDirtyOnReinitialize: true,
+	enableReinitialize: true,
 	validate
 })(WizardFormThirdPage)

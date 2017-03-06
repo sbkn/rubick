@@ -31,8 +31,10 @@ class WizardForm extends Component {
 	}
 
 	render() {
+
 		const { onSubmit } = this.props;
 		const { page } = this.state;
+
 		return (
 			<div>
 				{page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} initialValues={this.props.initialValues}/>}
