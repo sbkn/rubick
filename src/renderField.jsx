@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const renderField = ({input, label, type, disabled, meta: {touched, error}}) => (
 	<div>

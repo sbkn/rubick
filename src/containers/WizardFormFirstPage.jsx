@@ -3,7 +3,6 @@ import {Field, reduxForm, formValueSelector} from "redux-form";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
-import fetchData from "../actions/fetchData.jsx";
 import {connect} from "react-redux";
 
 
@@ -15,11 +14,6 @@ class WizardFormFirstPage extends Component {
 
 	constructor(props) {
 		super(props);
-	}
-
-	componentWillMount() {
-		if (!this.props.hasFetched)
-			this.props.fetchData();
 	}
 
 	render() {
@@ -67,19 +61,6 @@ WizardFormFirstPage = reduxForm({
 	enableReinitialize: true,
 	validate
 })(WizardFormFirstPage);
-
-function mapStateToProps(state) {
-	return {
-		initialValues: state.prefill.data,
-		isFetching: state.prefill.fetching,
-		hasFetched: state.prefill.fetched
-	}
-}
-
-WizardFormFirstPage = connect(
-	mapStateToProps,
-	{fetchData}
-)(WizardFormFirstPage);
 
 
 const selector = formValueSelector("wizard");
