@@ -23,23 +23,23 @@ class WizardFormFirstPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, isFetching, isNewCustomer} = this.props;
+		const {handleSubmit, isFetching, wasCustomer} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
 				<div>
 					<label>Are you a new customer?</label>
 					<div>
-						<label><Field name="isNewCustomer" component="input"
-									  type="radio" value="true"/> Yes</label>
-						<label><Field name="isNewCustomer" component="input"
-									  type="radio" value="false"/> No</label>
-						<Field name="isNewCustomer" component={renderError}/>
+						<label><Field name="wasCustomer" component="input"
+						              type="radio" value="true"/> Yes</label>
+						<label><Field name="wasCustomer" component="input"
+						              type="radio" value="false"/> No</label>
+						<Field name="wasCustomer" component={renderError}/>
 					</div>
 				</div>
-				{isNewCustomer === "true" && <Field name="conditionalText" type="text"
-				                                    component={renderField}
-				                                    label="Why are you here?"
-				                                    disabled={isFetching ? "disabled" : ""}/>}
+				{wasCustomer === "true" && <Field name="conditionalText" type="text"
+				                                  component={renderField}
+				                                  label="Why are you here?"
+				                                  disabled={isFetching ? "disabled" : ""}/>}
 				<Field name="firstName" type="text" component={renderField}
 					   label="First Name"
 					   disabled={isFetching ? "disabled" : ""}/>
@@ -86,9 +86,9 @@ const selector = formValueSelector("wizard");
 
 WizardFormFirstPage = connect(
 	state => {
-		const isNewCustomer = selector(state, "isNewCustomer");
+		const wasCustomer = selector(state, "wasCustomer");
 		return {
-			isNewCustomer
+			wasCustomer
 		}
 	}
 )(WizardFormFirstPage);
