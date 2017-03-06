@@ -12,7 +12,7 @@ const renderDatePicker = ({input, placeholder, defaultValue, meta: {touched, err
 			selected={input.value ? moment(input.value, "MM/DD/YYYY") : null}
 			minDate={moment()}
 			maxDate={moment().add(5, "days")}
-			excludeDates={[moment(), moment().subtract(1, "days")]}
+			excludeDates={[moment().add(2, "days"), moment().subtract(1, "days")]}
 		/>
 		{touched && error && <span>{error}</span>}
 	</div>
