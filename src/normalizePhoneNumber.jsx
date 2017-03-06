@@ -1,4 +1,4 @@
-const normalizeDownPayment = (value, previousValue) => {
+const normalizePhoneNumber = (value, previousValue) => {
 	if (!value) {
 		return value
 	}
@@ -21,4 +21,4 @@ const normalizeDownPayment = (value, previousValue) => {
 	return onlyNums.slice(0, 3) + '-' + onlyNums.slice(3, 6) + '-' + onlyNums.slice(6, 10)
 };
 
-export default normalizeDownPayment;
+export default normalizePhoneNumber;

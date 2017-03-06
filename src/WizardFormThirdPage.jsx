@@ -41,6 +41,7 @@ const WizardFormThirdPage = (props) => {
 		</form>
 	)
 };
+
 export default reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
@@ -48,4 +49,4 @@ export default reduxForm({
 	keepDirtyOnReinitialize: true,
 	enableReinitialize: true,
 	validate
-})(WizardFormThirdPage)
+})(WizardFormThirdPage);

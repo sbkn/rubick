@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Field, reduxForm} from "redux-form";
 import validate from "./validate.jsx";
 import renderField from "./renderField.jsx";
-import normalizeDownPayment from "./normalizeDownPayment.jsx";
+import normalizePhoneNumber from "./normalizePhoneNumber.jsx";
 import fetchData from "./fetchData.jsx";
 import {connect} from "react-redux";
 
@@ -24,8 +24,8 @@ class WizardFormFirstPage extends Component {
 			<form onSubmit={handleSubmit}>
 				<Field name="firstName" type="text" component={renderField} label="First Name"/>
 				<Field name="lastName" type="text" component={renderField} label="Last Name"/>
-				<Field name="downPayment" type="text" component={renderField}
-					   label="Down Payment" normalize={normalizeDownPayment}/>
+				<Field name="phoneNumber" type="text" component={renderField}
+					   label="Phone number" normalize={normalizePhoneNumber}/>
 				<div>
 					<button type="submit" className="next">Next</button>
 				</div>
