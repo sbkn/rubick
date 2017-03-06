@@ -33,7 +33,7 @@ class WizardForm extends Component {
 	}
 
 	goToPage(pageNumber) {
-		console.log("Will not validate! THIS IS A MOCK!");
+		console.log("Will not validate anything! THIS IS A MOCK!");
 		this.setState({page: pageNumber})
 	}
 

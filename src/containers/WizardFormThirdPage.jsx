@@ -1,6 +1,7 @@
 import React from "react"
 import {Field, reduxForm} from "redux-form"
 import validate from "../validate.js"
+import renderDatePicker from "../renderDatePicker.jsx";
 
 const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
 
@@ -29,9 +30,9 @@ const WizardFormThirdPage = (props) => {
 				</div>
 			</div>
 			<div>
-				<label>Notes</label>
+				<label>Pick a Date</label>
 				<div>
-					<Field name="notes" component="textarea" placeholder="Notes"/>
+					<Field name="datePicker" component={renderDatePicker}/>
 				</div>
 			</div>
 			<div>
