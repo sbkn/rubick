@@ -1,6 +1,7 @@
 const initialState = {
 	data: {},
 	fetching: false,
+	fetched: false,
 	error: null
 };
 
@@ -15,7 +16,8 @@ const prefillReducer = (state = initialState, action) => {
 			return {
 				...state,
 				data: action.data,
-				fetching: false
+				fetching: false,
+				fetched: true
 			};
 		default:
 			return state

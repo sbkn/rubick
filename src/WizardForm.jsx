@@ -18,7 +18,8 @@ class WizardForm extends Component {
 	}
 
 	componentWillMount() {
-		this.props.fetchData()
+		if (!this.props.hasFetched)
+			this.props.fetchData();
 	}
 
 	nextPage() {
@@ -50,7 +51,8 @@ class WizardForm extends Component {
 function mapStateToProps(state) {
 	return {
 		initialValues: state.prefill.data,
-		isFetching: state.prefill.fetching
+		isFetching: state.prefill.fetching,
+		hasFetched: state.prefill.fetched
 	}
 }
 
@@ -60,7 +62,8 @@ WizardForm = connect(
 )(WizardForm);
 
 WizardForm.propTypes = {
-	onSubmit: PropTypes.func.isRequired
+	onSubmit: PropTypes.func.isRequired,
+	initialValues: PropTypes.object
 };
 
 export default WizardForm;
