@@ -1,7 +1,7 @@
 import React from "react"
 import {Field, reduxForm} from "redux-form"
-import validate from "./validate.jsx"
-import renderField from "./renderField.jsx"
+import validate from "../validate.jsx"
+import renderField from "../renderField.jsx"
 
 const renderError = ({meta: {touched, error}}) => touched && error ?
 	<span>{error}</span> : false;

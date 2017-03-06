@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {Field, reduxForm, formValueSelector} from "redux-form";
-import validate from "./validate.jsx";
-import renderField from "./renderField.jsx";
-import normalizePhoneNumber from "./normalizePhoneNumber.jsx";
-import fetchData from "./fetchData.jsx";
+import validate from "../validate.jsx";
+import renderField from "../renderField.jsx";
+import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
+import fetchData from "../actions/fetchData.jsx";
 import {connect} from "react-redux";
 
 

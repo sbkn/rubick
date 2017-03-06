@@ -1,7 +1,7 @@
 import React from "react";
 import {reduxForm, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
-import validate from "./validate.jsx";
+import validate from "../validate.jsx";
 
 let WizardFormSummaryPage = (props) => {
 	const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber} = props;
