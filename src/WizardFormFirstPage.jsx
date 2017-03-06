@@ -30,8 +30,7 @@ WizardFormFirstPage = reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
 	forceUnregisterOnUnmount: true,
-	enableReinitialize: true,
-	//overwriteOnInitialValuesChange: false,
+	//enableReinitialize: true,
 	validate
 })(WizardFormFirstPage);
 

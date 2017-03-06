@@ -1,8 +1,8 @@
-import React from 'react'
-import {Field, reduxForm} from 'redux-form'
-import validate from './validate.jsx'
+import React from "react"
+import {Field, reduxForm} from "redux-form"
+import validate from "./validate.jsx"
 
-const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
 
 const renderColorSelector = ({input, meta: {touched, error}}) => (
 	<div>
@@ -42,9 +42,9 @@ const WizardFormThirdPage = (props) => {
 	)
 };
 export default reduxForm({
-	form: 'wizard', //Form name is same
+	form: "wizard",
 	destroyOnUnmount: false,
-	forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-	enableReinitialize: true,  // <------ TOOK ME 3 HOURS TO FIND THIS M8 WAS NEEDED ..
+	forceUnregisterOnUnmount: true,
+	//enableReinitialize: true,
 	validate
 })(WizardFormThirdPage)
