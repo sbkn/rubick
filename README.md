@@ -34,6 +34,7 @@ exclude specific dates, min & max date, formatting, localization, display 2 mont
 
 ##### Navigation Bar
 * User needs to be able to jump between pages. Validation and further logic are optional.
+* Evaluate routing possibilities (e.g. Hash-based or push state API)
 
 ##### Format input values
 * User input has to be formattable, so that values are stored formatted

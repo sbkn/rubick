@@ -6,6 +6,7 @@ import WizardFormSummaryPage from "./WizardFormSummaryPage.jsx"
 import {connect} from "react-redux";
 import fetchData from "../actions/fetchData.jsx";
 import NavBar from "../components/NavBar.jsx";
+import Footer from "./Footer.jsx";
 
 class WizardForm extends Component {
 
@@ -15,7 +16,7 @@ class WizardForm extends Component {
 		this.previousPage = this.previousPage.bind(this);
 		this.goToPage = this.goToPage.bind(this);
 		this.state = {
-			page: 0
+			page: props.currentPage
 		};
 	}
 
@@ -49,13 +50,17 @@ class WizardForm extends Component {
 				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
 				{page === 1 &&
 				<WizardFormSecondPage previousPage={this.previousPage}
-				                      onSubmit={this.nextPage}/>}
+									  initialValues={initialValues}
+									  onSubmit={this.nextPage}/>}
 				{page === 2 &&
 				<WizardFormThirdPage previousPage={this.previousPage}
-				                     onSubmit={this.nextPage}/>}
+									 initialValues={initialValues}
+									 onSubmit={this.nextPage}/>}
 				{page === 3 &&
 				<WizardFormSummaryPage previousPage={this.previousPage}
-				                       onSubmit={onSubmit}/>}
+									   initialValues={initialValues}
+									   onSubmit={onSubmit}/>}
+				<Footer goToPage={this.goToPage}/>
 			</div>
 		)
 	}
@@ -75,7 +80,8 @@ WizardForm = connect(
 )(WizardForm);
 
 WizardForm.propTypes = {
-	onSubmit: PropTypes.func.isRequired
+	onSubmit: PropTypes.func.isRequired,
+	currentPage: PropTypes.number
 };
 
 export default WizardForm;
