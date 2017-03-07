@@ -12,8 +12,8 @@ class WizardFormSummaryPage extends Component {
 		this.submitForm = this.submitForm.bind(this);
 	}
 
-	submitForm(param) {
-		console.log("Submitted data:", param);
+	submitForm(formData) {
+		console.log("Submitted data:", formData);
 	}
 
 	render() {

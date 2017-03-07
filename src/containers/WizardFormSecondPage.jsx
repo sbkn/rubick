@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {Field, FieldArray, reduxForm} from "redux-form";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
@@ -6,26 +6,42 @@ import renderExpenditures from "../renderExpenditures.jsx";
 import PageLink from "./PageLink.jsx";
 
 
-const WizardFormSecondPage = (props) => {
-	const {handleSubmit, previousPage} = props;
-	return (
-		<form onSubmit={handleSubmit}>
-			<Field name="email" type="email" component={renderField} label="Email"/>
+class WizardFormSecondPage extends Component {
 
-			<FieldArray name="expenditures" component={renderExpenditures}/>
+	constructor(props) {
+		super(props);
+		this.mySubmit = this.mySubmit.bind(this);
+	}
 
-			<div>
-				<PageLink pageIndex="0" goToPage={handleSubmit}>
-					<button type="button" className="previous" onClick={previousPage}>Previous</button>
-				</PageLink>
-				<PageLink pageIndex="2" goToPage={handleSubmit}>
-					<button type="submit" className="next">Next</button>
-				</PageLink>
+	mySubmit() {
+		console.log("MY SUBMIT!");
+		console.log(this.props);
+		/*const valRes = this.props.validate();
+		 console.log("VALRES", valRes);*/
+		this.props.router.push("/2");
+	}
 
-			</div>
-		</form>
-	)
-};
+	render() {
+		const {handleSubmit, previousPage} = this.props;
+		return (
+			<form onSubmit={handleSubmit}>
+				<Field name="email" type="email" component={renderField} label="Email"/>
+
+				<FieldArray name="expenditures" component={renderExpenditures}/>
+
+				<div>
+					<PageLink pageIndex="0">
+						<button type="button" className="previous" onClick={previousPage}>Previous</button>
+					</PageLink>
+					<PageLink pageIndex="2" goToPage={handleSubmit} mySubmit={this.mySubmit}>
+						<button type="submit" className="next">Next</button>
+					</PageLink>
+
+				</div>
+			</form>
+		)
+	}
+}
 
 export default reduxForm({
 	form: "wizard",
@@ -33,4 +49,4 @@ export default reduxForm({
 	keepDirtyOnReinitialize: true,
 	enableReinitialize: true,
 	validate
-})(WizardFormSecondPage)
+})(WizardFormSecondPage);

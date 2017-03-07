@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Component} from "react"
 import {Field, reduxForm} from "redux-form"
 import validate from "../validate.js"
 import DatePicker from "../components/DatePicker.jsx";
@@ -17,31 +17,44 @@ const renderColorSelector = ({input, meta: {touched, error}}) => (
 	</div>
 );
 
-const WizardFormThirdPage = (props) => {
-	const {handleSubmit, previousPage} = props;
-	return (
-		<form onSubmit={handleSubmit}>
-			<div>
-				<label>Favorite Color</label>
-				<Field name="favoriteColor" component={renderColorSelector}/>
-			</div>
+class WizardFormThirdPage extends Component {
 
-			<Field name="employed" type="checkbox" component={renderField}
-				   label="Employed"/>
+	constructor(props) {
+		super(props);
+		this.mySubmit = this.mySubmit.bind(this);
+	}
 
-			<DatePicker/>
+	mySubmit() {
+		console.log("MY SUBMIT!");
+		this.props.router.push("/3");
+	}
 
-			<div>
-				<PageLink pageIndex="1" goToPage={handleSubmit}>
-					<button type="button" className="previous" onClick={previousPage}>Previous</button>
-				</PageLink>
-				<PageLink pageIndex="3" goToPage={handleSubmit}>
-					<button type="submit" className="next">Next</button>
-				</PageLink>
-			</div>
-		</form>
-	)
-};
+	render() {
+		const {handleSubmit, previousPage} = this.props;
+		return (
+			<form onSubmit={handleSubmit}>
+				<div>
+					<label>Favorite Color</label>
+					<Field name="favoriteColor" component={renderColorSelector}/>
+				</div>
+
+				<Field name="employed" type="checkbox" component={renderField}
+				       label="Employed"/>
+
+				<DatePicker/>
+
+				<div>
+					<PageLink pageIndex="1" goToPage={handleSubmit}>
+						<button type="button" className="previous" onClick={previousPage}>Previous</button>
+					</PageLink>
+					<PageLink pageIndex="3" goToPage={handleSubmit}>
+						<button type="submit" className="next">Next</button>
+					</PageLink>
+				</div>
+			</form>
+		)
+	}
+}
 
 export default reduxForm({
 	form: "wizard",
