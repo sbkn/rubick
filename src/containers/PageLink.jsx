@@ -4,9 +4,7 @@ import {Link} from "react-router";
 const PageLink = ({pageIndex, goToPage, children}) => (
 	<Link
 		to={pageIndex}
-		onClick={() => {
-			goToPage(pageIndex)
-		}}
+		onClick={() => goToPage(pageIndex)}
 		activeStyle={{
 			textDecoration: "none",
 			color: "black"

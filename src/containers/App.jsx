@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {Provider} from "react-redux";
-import Form from "./Form.jsx";
 import {createStore} from "redux";
-import {Router, Route, browserHistory} from "react-router";
+import WizardForm from "./WizardForm.jsx";
 
 import {getReducer, getMiddleware} from "../reducers/reducers.js";
 
@@ -12,9 +11,8 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={ store }>
-				<Router history={browserHistory}>
-					<Route path="/(:pageIndex)" component={Form}/>
-				</Router>
+				<WizardForm onSubmit={data => console.log(data)}
+				/>
 			</Provider>
 		);
 	}

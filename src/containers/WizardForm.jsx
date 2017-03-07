@@ -4,6 +4,7 @@ import WizardFormSecondPage from "./WizardFormSecondPage.jsx"
 import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
 import WizardFormSummaryPage from "./WizardFormSummaryPage.jsx"
 import {connect} from "react-redux";
+import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import fetchData from "../actions/fetchData.jsx";
 import NavBar from "../components/NavBar.jsx";
 import Footer from "./Footer.jsx";
@@ -45,7 +46,12 @@ class WizardForm extends Component {
 
 		return (
 			<div>
+				<Router history={browserHistory}>
+					<Route path="/0" component={/*FILL_ME*/}/>
+				</Router>
+
 				<NavBar goToPage={this.goToPage}/>
+
 				{page === 0 &&
 				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
 				{page === 1 &&
@@ -60,6 +66,7 @@ class WizardForm extends Component {
 				<WizardFormSummaryPage previousPage={this.previousPage}
 									   initialValues={initialValues}
 									   onSubmit={onSubmit}/>}
+
 				<Footer goToPage={this.goToPage}/>
 			</div>
 		)
