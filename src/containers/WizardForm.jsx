@@ -3,7 +3,7 @@ import WizardFormFirstPage from "./WizardFormFirstPage.jsx"
 import WizardFormSecondPage from "./WizardFormSecondPage.jsx"
 import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
 import WizardFormSummaryPage from "./WizardFormSummaryPage.jsx"
-import {Router, Route, IndexRoute, browserHistory} from "react-router";
+import {Router, Route, browserHistory} from "react-router";
 import NavBar from "../components/NavBar.jsx";
 import Footer from "./Footer.jsx";
 
@@ -33,7 +33,6 @@ class WizardForm extends Component {
 	}
 
 	render() {
-
 		const {onSubmit, initialValues, isFetching} = this.props;
 		const {page} = this.state;
 
@@ -59,7 +58,7 @@ class WizardForm extends Component {
 }
 
 WizardForm.propTypes = {
-	onSubmit: PropTypes.func.isRequired,
+	//onSubmit: PropTypes.func.isRequired,
 	currentPage: PropTypes.number
 };
 

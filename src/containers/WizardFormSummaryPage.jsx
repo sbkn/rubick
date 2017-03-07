@@ -1,31 +1,44 @@
-import React from "react";
+import React, {Component} from "react";
 import {reduxForm, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
 import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
 import PageLink from "./PageLink.jsx";
 
-let WizardFormSummaryPage = (props) => {
-	const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber} = props;
-	return (
-		<form onSubmit={handleSubmit}>
-			<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
-			<div>
-				<PageLink pageIndex="2" goToPage={handleSubmit}>
+class WizardFormSummaryPage extends Component {
 
-					<button type="button" className="previous"
-					        onClick={previousPage}>
-						Previous
+	constructor(props) {
+		super(props);
+		this.submitForm = this.submitForm.bind(this);
+	}
+
+	submitForm(param) {
+		console.log("Submitted data:", param);
+	}
+
+	render() {
+		const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber} = this.props;
+
+		return (
+			<form onSubmit={handleSubmit(this.submitForm)}>
+				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
+				<div>
+					<PageLink pageIndex="2" goToPage={handleSubmit}>
+
+						<button type="button" className="previous"
+						        onClick={previousPage}>
+							Previous
+						</button>
+					</PageLink>
+
+					<button type="submit" disabled={pristine || submitting}>
+						Submit
 					</button>
-				</PageLink>
-
-				<button type="submit" disabled={pristine || submitting}>
-					Submit
-				</button>
-			</div>
-		</form>
-	)
-};
+				</div>
+			</form>
+		)
+	}
+}
 
 function formatPhoneNumber(value) {
 	if (!value) return "";
