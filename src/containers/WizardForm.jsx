@@ -15,7 +15,7 @@ class WizardForm extends Component {
 		this.previousPage = this.previousPage.bind(this);
 		this.goToPage = this.goToPage.bind(this);
 		this.state = {
-			page: props.currentPage
+			page: 0
 		};
 	}
 
@@ -33,8 +33,6 @@ class WizardForm extends Component {
 	}
 
 	render() {
-		const {onSubmit, initialValues, isFetching} = this.props;
-		const {page} = this.state;
 
 		return (
 			<div>
@@ -48,18 +46,10 @@ class WizardForm extends Component {
 
 				{false && <NavBar goToPage={this.goToPage}/>}
 
-				{false && page === 0 &&
-				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
-
 				{false && <Footer goToPage={this.goToPage}/>}
 			</div>
 		)
 	}
 }
-
-WizardForm.propTypes = {
-	//onSubmit: PropTypes.func.isRequired,
-	currentPage: PropTypes.number
-};
 
 export default WizardForm;

@@ -1,5 +1,5 @@
 # rubick
-Forms with **React** &amp; **Redux** using **redux-forms**.
+Forms with **React** &amp; **Redux** using **redux-forms** and **react-router**.
 
 Run:
 
