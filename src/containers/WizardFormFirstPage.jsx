@@ -1,13 +1,10 @@
 import React, {Component} from "react";
 import {Field, reduxForm, formValueSelector} from "redux-form";
+import {connect} from "react-redux";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
-import {connect} from "react-redux";
-
-const renderError = ({meta: {touched, error}}) => touched && error ?
-	<span>{error}</span> : false;
-
+import WasCustomer from "../components/WasCustomer.jsx";
 
 class WizardFormFirstPage extends Component {
 
@@ -32,16 +29,7 @@ class WizardFormFirstPage extends Component {
 		const {handleSubmit, isFetching, wasCustomer} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<div>
-					<label>Are you a new customer?</label>
-					<div>
-						<label><Field name="wasCustomer" component="input"
-						              type="radio" value="true"/> Yes</label>
-						<label><Field name="wasCustomer" component="input"
-						              type="radio" value="false"/> No</label>
-						<Field name="wasCustomer" component={renderError}/>
-					</div>
-				</div>
+				<WasCustomer/>
 				{wasCustomer === "true" && <Field name="conditionalText" type="text"
 				                                  component={renderField}
 				                                  label="Why are you here?"
