@@ -1,11 +1,11 @@
 import React from "react"
 import PageLink from "./PageLink.jsx"
 
-const Footer = () => (
+const Footer = (props) => (
 	<p>
 		Pages:
 		{"    "}
-		<PageLink pageIndex="0">
+		<PageLink pageIndex="0" goToPage={() => props.goToPage("0")}>
 			0
 		</PageLink>
 		{"    "}

@@ -3,9 +3,7 @@ import WizardFormFirstPage from "./WizardFormFirstPage.jsx"
 import WizardFormSecondPage from "./WizardFormSecondPage.jsx"
 import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
 import WizardFormSummaryPage from "./WizardFormSummaryPage.jsx"
-import {connect} from "react-redux";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
-import fetchData from "../actions/fetchData.jsx";
 import NavBar from "../components/NavBar.jsx";
 import Footer from "./Footer.jsx";
 
@@ -19,11 +17,6 @@ class WizardForm extends Component {
 		this.state = {
 			page: props.currentPage
 		};
-	}
-
-	componentWillMount() {
-		if (!this.props.hasFetched)
-			this.props.fetchData();
 	}
 
 	nextPage() {
@@ -56,39 +49,14 @@ class WizardForm extends Component {
 
 				{false && <NavBar goToPage={this.goToPage}/>}
 
-				{page === 0 &&
+				{false && page === 0 &&
 				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
-				{page === 1 &&
-				<WizardFormSecondPage previousPage={this.previousPage}
-									  initialValues={initialValues}
-									  onSubmit={this.nextPage}/>}
-				{page === 2 &&
-				<WizardFormThirdPage previousPage={this.previousPage}
-									 initialValues={initialValues}
-									 onSubmit={this.nextPage}/>}
-				{page === 3 &&
-				<WizardFormSummaryPage previousPage={this.previousPage}
-									   initialValues={initialValues}
-									   onSubmit={onSubmit}/>}
 
-				<Footer goToPage={this.goToPage}/>
+				{false && <Footer goToPage={this.goToPage}/>}
 			</div>
 		)
 	}
 }
-
-function mapStateToProps(state) {
-	return {
-		initialValues: state.prefill.data,
-		isFetching: state.prefill.fetching,
-		hasFetched: state.prefill.fetched
-	}
-}
-
-WizardForm = connect(
-	mapStateToProps,
-	{fetchData}
-)(WizardForm);
 
 WizardForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired,

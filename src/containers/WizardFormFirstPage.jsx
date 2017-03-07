@@ -6,12 +6,19 @@ import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
 import WasCustomer from "../components/WasCustomer.jsx";
 import PageLink from "./PageLink.jsx";
+import fetchData from "../actions/fetchData.jsx";
+
 
 class WizardFormFirstPage extends Component {
 
 	constructor(props) {
 		super(props);
 		this.clearConditionalText = this.clearConditionalText.bind(this);
+	}
+
+	componentWillMount() {
+		if (!this.props.hasFetched)
+			this.props.fetchData();
 	}
 
 	clearConditionalText() {
@@ -75,6 +82,19 @@ WizardFormFirstPage = connect(
 			wasCustomer
 		}
 	}
+)(WizardFormFirstPage);
+
+function mapStateToProps(state) {
+	return {
+		initialValues: state.prefill.data,
+		isFetching: state.prefill.fetching,
+		hasFetched: state.prefill.fetched
+	}
+}
+
+WizardFormFirstPage = connect(
+	mapStateToProps,
+	{fetchData}
 )(WizardFormFirstPage);
 
 export default WizardFormFirstPage;
