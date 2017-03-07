@@ -35,8 +35,6 @@ class WizardFormFirstPage extends Component {
 	}
 
 	mySubmit() {
-		console.log("MY SUBMIT!");
-		console.log(this.props);
 		this.props.router.push("/1");
 	}
 

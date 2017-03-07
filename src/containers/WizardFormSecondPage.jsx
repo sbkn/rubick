@@ -14,10 +14,6 @@ class WizardFormSecondPage extends Component {
 	}
 
 	mySubmit() {
-		console.log("MY SUBMIT!");
-		console.log(this.props);
-		/*const valRes = this.props.validate();
-		 console.log("VALRES", valRes);*/
 		this.props.router.push("/2");
 	}
 

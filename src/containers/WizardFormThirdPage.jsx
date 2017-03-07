@@ -5,7 +5,7 @@ import DatePicker from "../components/DatePicker.jsx";
 import renderField from "../renderField.jsx";
 import PageLink from "./PageLink.jsx";
 
-const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+const colors = ["Red", "Orange", "Yellow"];
 
 const renderColorSelector = ({input, meta: {touched, error}}) => (
 	<div>
@@ -25,7 +25,6 @@ class WizardFormThirdPage extends Component {
 	}
 
 	mySubmit() {
-		console.log("MY SUBMIT!");
 		this.props.router.push("/3");
 	}
 
@@ -47,7 +46,7 @@ class WizardFormThirdPage extends Component {
 					<PageLink pageIndex="1" goToPage={handleSubmit}>
 						<button type="button" className="previous" onClick={previousPage}>Previous</button>
 					</PageLink>
-					<PageLink pageIndex="3" goToPage={handleSubmit}>
+					<PageLink pageIndex="3" goToPage={handleSubmit} mySubmit={this.mySubmit}>
 						<button type="submit" className="next">Next</button>
 					</PageLink>
 				</div>
