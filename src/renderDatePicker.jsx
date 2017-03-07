@@ -8,11 +8,12 @@ const renderDatePicker = ({input, placeholder, defaultValue, meta: {touched, err
 	<div>
 		<DatePicker
 			{...input}
-			dateForm="MM/DD/YYYY"
-			selected={input.value ? moment(input.value, "MM/DD/YYYY") : null}
+			dateForm="DD.MM.YYYY"
+			selected={input.value ? moment(input.value, "DD.MM.YYYY") : null}
 			minDate={moment()}
 			maxDate={moment().add(5, "days")}
 			excludeDates={[moment().add(2, "days"), moment().subtract(1, "days")]}
+			monthsShown={2}
 		/>
 		{touched && error && <span>{error}</span>}
 	</div>

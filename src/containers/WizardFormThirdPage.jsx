@@ -1,7 +1,8 @@
 import React from "react"
 import {Field, reduxForm} from "redux-form"
 import validate from "../validate.js"
-import renderDatePicker from "../renderDatePicker.jsx";
+import DatePicker from "../components/DatePicker.jsx";
+import renderField from "../renderField.jsx";
 
 const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
 
@@ -23,18 +24,12 @@ const WizardFormThirdPage = (props) => {
 				<label>Favorite Color</label>
 				<Field name="favoriteColor" component={renderColorSelector}/>
 			</div>
-			<div>
-				<label htmlFor="employed">Employed</label>
-				<div>
-					<Field name="employed" id="employed" component="input" type="checkbox"/>
-				</div>
-			</div>
-			<div>
-				<label>Pick a Date</label>
-				<div>
-					<Field name="datePicker" component={renderDatePicker}/>
-				</div>
-			</div>
+
+			<Field name="employed" type="checkbox" component={renderField}
+				   label="Employed"/>
+
+			<DatePicker/>
+
 			<div>
 				<button type="button" className="previous" onClick={previousPage}>Previous</button>
 				<button type="submit" className="next">Next</button>
