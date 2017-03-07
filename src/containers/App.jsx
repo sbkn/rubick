@@ -11,8 +11,7 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={ store }>
-				<WizardForm onSubmit={data => console.log(data)}
-				/>
+				<WizardForm onSubmit={data => console.log(data)}/>
 			</Provider>
 		);
 	}

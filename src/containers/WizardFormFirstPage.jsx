@@ -5,6 +5,7 @@ import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
 import WasCustomer from "../components/WasCustomer.jsx";
+import PageLink from "./PageLink.jsx";
 
 class WizardFormFirstPage extends Component {
 
@@ -35,18 +36,20 @@ class WizardFormFirstPage extends Component {
 				                                  label="Why are you here?"
 				                                  disabled={isFetching ? "disabled" : ""}/>}
 				<Field name="firstName" type="text" component={renderField}
-					   label="First Name"
-					   disabled={isFetching ? "disabled" : ""}/>
+				       label="First Name"
+				       disabled={isFetching ? "disabled" : ""}/>
 				<Field name="lastName" type="text" component={renderField}
-					   label="Last Name"
-					   disabled={isFetching ? "disabled" : ""}/>
+				       label="Last Name"
+				       disabled={isFetching ? "disabled" : ""}/>
 				<Field name="phoneNumber" type="text" component={renderField}
-					   label="Phone number" normalize={normalizePhoneNumber}
-					   disabled={isFetching ? "disabled" : ""}/>
+				       label="Phone number" normalize={normalizePhoneNumber}
+				       disabled={isFetching ? "disabled" : ""}/>
 				<div>
-					<button type="submit" className="next"
-							disabled={isFetching ? "disabled" : ""}>Next
-					</button>
+					<PageLink pageIndex="1" goToPage={handleSubmit}>
+						<button type="submit" className="next"
+						        disabled={isFetching ? "disabled" : ""}>Next
+						</button>
+					</PageLink>
 				</div>
 				<label>{isFetching ? "Fetching data.." : "Fetched data successfully." }</label>
 			</form>

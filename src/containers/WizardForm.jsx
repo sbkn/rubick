@@ -47,10 +47,14 @@ class WizardForm extends Component {
 		return (
 			<div>
 				<Router history={browserHistory}>
-					<Route path="/0" component={/*FILL_ME*/}/>
+					<Route path="/" component={WizardFormFirstPage}/>
+					<Route path="/0" component={WizardFormFirstPage}/>
+					<Route path="/1" component={WizardFormSecondPage}/>
+					<Route path="/2" component={WizardFormThirdPage}/>
+					<Route path="/3" component={WizardFormSummaryPage}/>
 				</Router>
 
-				<NavBar goToPage={this.goToPage}/>
+				{false && <NavBar goToPage={this.goToPage}/>}
 
 				{page === 0 &&
 				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}

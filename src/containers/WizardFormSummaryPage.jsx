@@ -3,6 +3,7 @@ import {reduxForm, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
 import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
+import PageLink from "./PageLink.jsx";
 
 let WizardFormSummaryPage = (props) => {
 	const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber} = props;
@@ -10,10 +11,16 @@ let WizardFormSummaryPage = (props) => {
 		<form onSubmit={handleSubmit}>
 			<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
 			<div>
-				<button type="button" className="previous"
-						onClick={previousPage}>Previous
-				</button>
-				<button type="submit" disabled={pristine || submitting}>Submit
+				<PageLink pageIndex="2" goToPage={handleSubmit}>
+
+					<button type="button" className="previous"
+					        onClick={previousPage}>
+						Previous
+					</button>
+				</PageLink>
+
+				<button type="submit" disabled={pristine || submitting}>
+					Submit
 				</button>
 			</div>
 		</form>

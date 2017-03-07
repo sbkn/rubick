@@ -3,10 +3,11 @@ import {Field, FieldArray, reduxForm} from "redux-form";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import renderExpenditures from "../renderExpenditures.jsx";
+import PageLink from "./PageLink.jsx";
 
 
 const WizardFormSecondPage = (props) => {
-	const { handleSubmit, previousPage } = props;
+	const {handleSubmit, previousPage} = props;
 	return (
 		<form onSubmit={handleSubmit}>
 			<Field name="email" type="email" component={renderField} label="Email"/>
@@ -14,8 +15,13 @@ const WizardFormSecondPage = (props) => {
 			<FieldArray name="expenditures" component={renderExpenditures}/>
 
 			<div>
-				<button type="button" className="previous" onClick={previousPage}>Previous</button>
-				<button type="submit" className="next">Next</button>
+				<PageLink pageIndex="0" goToPage={handleSubmit}>
+					<button type="button" className="previous" onClick={previousPage}>Previous</button>
+				</PageLink>
+				<PageLink pageIndex="2" goToPage={handleSubmit}>
+					<button type="submit" className="next">Next</button>
+				</PageLink>
+
 			</div>
 		</form>
 	)
