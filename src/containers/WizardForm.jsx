@@ -5,7 +5,7 @@ import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
 import WizardFormSummaryPage from "./WizardFormSummaryPage.jsx"
 import {connect} from "react-redux";
 import fetchData from "../actions/fetchData.jsx";
-
+import NavBar from "../components/NavBar.jsx";
 
 class WizardForm extends Component {
 
@@ -44,12 +44,7 @@ class WizardForm extends Component {
 
 		return (
 			<div>
-				<div>
-					<label className="nav-label" onClick={() => this.goToPage(1)}>1</label>
-					<label className="nav-label" onClick={() => this.goToPage(2)}>2</label>
-					<label className="nav-label" onClick={() => this.goToPage(3)}>3</label>
-					<label className="nav-label" onClick={() => this.goToPage(4)}>4</label>
-				</div>
+				<NavBar goToPage={this.goToPage}/>
 				{page === 1 &&
 				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
 				{page === 2 &&
