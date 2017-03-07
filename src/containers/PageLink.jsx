@@ -9,6 +9,7 @@ const PageLink = ({pageIndex, goToPage, mySubmit, children}) => (
 			textDecoration: "none",
 			color: "black"
 		}}
+		className="nav-label"
 	>
 		{children}
 	</Link>

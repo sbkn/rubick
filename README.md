@@ -42,6 +42,6 @@ exclude specific dates, min & max date, formatting, localization, display 2 mont
 * User input displayed in a separate form element needs to be formattable
 (e.g. stored value: 1000 -> displayed value: 1.000).
 
-##### Addable fields
+##### Dynamic fields
 * User needs to be able to create new fields (field groups) dynamically
 to form by clicking a button (e.g. To-Do list -> add a to-do task). 

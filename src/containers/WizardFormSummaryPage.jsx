@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
 import PageLink from "./PageLink.jsx";
+import NavBar from "./NavBar.jsx";
 
 class WizardFormSummaryPage extends Component {
 
@@ -21,6 +22,7 @@ class WizardFormSummaryPage extends Component {
 
 		return (
 			<form onSubmit={handleSubmit(this.submitForm)}>
+				<NavBar goToPage={this.mySubmit}/>
 				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
 				<div>
 					<PageLink pageIndex="2" goToPage={handleSubmit}>

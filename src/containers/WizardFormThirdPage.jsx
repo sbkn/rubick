@@ -4,6 +4,7 @@ import validate from "../validate.js"
 import DatePicker from "../components/DatePicker.jsx";
 import renderField from "../renderField.jsx";
 import PageLink from "./PageLink.jsx";
+import NavBar from "./NavBar.jsx";
 
 const colors = ["Red", "Orange", "Yellow"];
 
@@ -32,6 +33,7 @@ class WizardFormThirdPage extends Component {
 		const {handleSubmit, previousPage} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
+				<NavBar goToPage={this.mySubmit}/>
 				<div>
 					<label>Favorite Color</label>
 					<Field name="favoriteColor" component={renderColorSelector}/>

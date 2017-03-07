@@ -7,6 +7,8 @@ import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
 import WasCustomer from "../components/WasCustomer.jsx";
 import PageLink from "./PageLink.jsx";
 import fetchData from "../actions/fetchData.jsx";
+import NavBar from "./NavBar.jsx";
+
 
 
 class WizardFormFirstPage extends Component {
@@ -42,6 +44,7 @@ class WizardFormFirstPage extends Component {
 		const {handleSubmit, isFetching, wasCustomer} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
+				<NavBar goToPage={this.mySubmit}/>
 				<WasCustomer/>
 				{wasCustomer === "true" && <Field name="conditionalText" type="text"
 				                                  component={renderField}

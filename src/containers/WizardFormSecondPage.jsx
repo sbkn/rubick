@@ -4,6 +4,7 @@ import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import renderExpenditures from "../renderExpenditures.jsx";
 import PageLink from "./PageLink.jsx";
+import NavBar from "./NavBar.jsx";
 
 
 class WizardFormSecondPage extends Component {
@@ -21,6 +22,7 @@ class WizardFormSecondPage extends Component {
 		const {handleSubmit, previousPage} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
+				<NavBar goToPage={this.mySubmit}/>
 				<Field name="email" type="email" component={renderField} label="Email"/>
 
 				<FieldArray name="expenditures" component={renderExpenditures}/>

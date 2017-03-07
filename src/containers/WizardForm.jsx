@@ -4,8 +4,6 @@ import WizardFormSecondPage from "./WizardFormSecondPage.jsx"
 import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
 import WizardFormSummaryPage from "./WizardFormSummaryPage.jsx"
 import {Router, Route, browserHistory} from "react-router";
-import NavBar from "../components/NavBar.jsx";
-import Footer from "./Footer.jsx";
 
 class WizardForm extends Component {
 
@@ -43,10 +41,6 @@ class WizardForm extends Component {
 					<Route path="/2" component={WizardFormThirdPage}/>
 					<Route path="/3" component={WizardFormSummaryPage}/>
 				</Router>
-
-				{false && <NavBar goToPage={this.goToPage}/>}
-
-				{false && <Footer goToPage={this.goToPage}/>}
 			</div>
 		)
 	}
