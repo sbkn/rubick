@@ -15,7 +15,7 @@ class WizardForm extends Component {
 		this.previousPage = this.previousPage.bind(this);
 		this.goToPage = this.goToPage.bind(this);
 		this.state = {
-			page: 1
+			page: 0
 		};
 	}
 
@@ -34,7 +34,7 @@ class WizardForm extends Component {
 
 	goToPage(pageNumber) {
 		console.log("Will not validate anything! THIS IS A MOCK!");
-		this.setState({page: pageNumber})
+		this.setState({page: pageNumber});
 	}
 
 	render() {
@@ -45,15 +45,15 @@ class WizardForm extends Component {
 		return (
 			<div>
 				<NavBar goToPage={this.goToPage}/>
-				{page === 1 &&
+				{page === 0 &&
 				<WizardFormFirstPage onSubmit={this.nextPage} initialValues={initialValues} isFetching={isFetching}/>}
-				{page === 2 &&
+				{page === 1 &&
 				<WizardFormSecondPage previousPage={this.previousPage}
 				                      onSubmit={this.nextPage}/>}
-				{page === 3 &&
+				{page === 2 &&
 				<WizardFormThirdPage previousPage={this.previousPage}
 				                     onSubmit={this.nextPage}/>}
-				{page === 4 &&
+				{page === 3 &&
 				<WizardFormSummaryPage previousPage={this.previousPage}
 				                       onSubmit={onSubmit}/>}
 			</div>
