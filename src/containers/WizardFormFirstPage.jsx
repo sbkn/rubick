@@ -5,7 +5,6 @@ import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
 import {connect} from "react-redux";
 
-
 const renderError = ({meta: {touched, error}}) => touched && error ?
 	<span>{error}</span> : false;
 
@@ -14,6 +13,19 @@ class WizardFormFirstPage extends Component {
 
 	constructor(props) {
 		super(props);
+		this.clearConditionalText = this.clearConditionalText.bind(this);
+	}
+
+	clearConditionalText() {
+		this.props.dispatch({
+			type: "CLEAR_CONDITIONAL_FIELD",
+			payload: "conditionalText"
+		});
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.wasCustomer === "false")
+			this.clearConditionalText();
 	}
 
 	render() {
