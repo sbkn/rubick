@@ -9,7 +9,7 @@ const reducers = {
 	form: formReducer.plugin({
 		wizard: (state, action) => {
 			switch (action.type) {
-				case "CLEAR_CONDITIONAL_FIELD":
+				case "CLEAR_CONDITIONAL_FIELDS":
 					const newState = {
 						...state,
 						values: {
