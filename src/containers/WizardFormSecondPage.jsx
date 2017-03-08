@@ -3,8 +3,9 @@ import {Field, FieldArray, reduxForm} from "redux-form";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import renderExpenditures from "../renderExpenditures.jsx";
-import PageLink from "./PageLink.jsx";
 import NavBar from "./NavBar.jsx";
+import ButtonNext from "../components/ButtonNext.jsx";
+import ButtonPrevious from "../components/ButtonPrevious.jsx";
 
 
 class WizardFormSecondPage extends Component {
@@ -29,14 +30,8 @@ class WizardFormSecondPage extends Component {
 				<FieldArray name="expenditures" component={renderExpenditures}/>
 
 				<div>
-					<PageLink pageIndex="0">
-						<button type="button" className="previous" onClick={previousPage}>Previous</button>
-					</PageLink>
-					<PageLink pageIndex="2" handleSubmit={handleSubmit}
-							  mySubmit={this.submitView}>
-						<button className="next">Next</button>
-					</PageLink>
-
+					<ButtonPrevious toPage="0" onClick={previousPage}/>
+					<ButtonNext toPage="2" handleSubmit={handleSubmit} mySubmit={this.submitView}/>
 				</div>
 			</form>
 		)

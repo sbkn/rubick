@@ -6,9 +6,9 @@ import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
 import WasCustomer from "../components/WasCustomer.jsx";
 import FetchDataStatus from "../components/FetchDataStatus.jsx";
-import PageLink from "./PageLink.jsx";
 import fetchData from "../actions/fetchData.jsx";
 import NavBar from "./NavBar.jsx";
+import ButtonNext from "../components/ButtonNext.jsx";
 
 
 
@@ -61,13 +61,11 @@ class WizardFormFirstPage extends Component {
 				       label="Phone number" normalize={normalizePhoneNumber}
 				       disabled={isFetching ? "disabled" : ""}/>
 				<div>
-					<PageLink pageIndex="1" handleSubmit={handleSubmit}
-							  mySubmit={this.submitView}>
-						<button className="next"
-						        disabled={isFetching ? "disabled" : ""}>
-							Next
-						</button>
-					</PageLink>
+					<ButtonNext toPage="1"
+					            handleSubmit={handleSubmit}
+					            mySubmit={this.submitView}
+					            disabled={isFetching ? "disabled" : ""}
+					/>
 				</div>
 				<FetchDataStatus isFetching={isFetching} error={fetchDataError}/>
 			</form>

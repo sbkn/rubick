@@ -3,8 +3,11 @@ import {Field, reduxForm} from "redux-form"
 import validate from "../validate.js"
 import DatePicker from "../components/DatePicker.jsx";
 import renderField from "../renderField.jsx";
-import PageLink from "./PageLink.jsx";
 import NavBar from "./NavBar.jsx";
+import ButtonNext from "../components/ButtonNext.jsx";
+import ButtonPrevious from "../components/ButtonPrevious.jsx";
+
+
 
 const colors = ["Red", "Orange", "Yellow"];
 
@@ -46,13 +49,8 @@ class WizardFormThirdPage extends Component {
 				<DatePicker/>
 
 				<div>
-					<PageLink pageIndex="1" handleSubmit={handleSubmit}>
-						<button type="button" className="previous" onClick={previousPage}>Previous</button>
-					</PageLink>
-					<PageLink pageIndex="3" handleSubmit={handleSubmit}
-							  mySubmit={this.submitView}>
-						<button className="next">Next</button>
-					</PageLink>
+					<ButtonPrevious toPage="1" onClick={previousPage}/>
+					<ButtonNext toPage="3" handleSubmit={handleSubmit} mySubmit={this.submitView}/>
 				</div>
 			</form>
 		)

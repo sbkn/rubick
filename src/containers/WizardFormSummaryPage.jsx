@@ -3,8 +3,9 @@ import {reduxForm, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
 import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
-import PageLink from "./PageLink.jsx";
 import NavBar from "./NavBar.jsx";
+import ButtonPrevious from "../components/ButtonPrevious.jsx";
+
 
 class WizardFormSummaryPage extends Component {
 
@@ -26,15 +27,9 @@ class WizardFormSummaryPage extends Component {
 				<NavBar handleSubmit={handleSubmit} router={router}/>
 
 				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
+
 				<div>
-					<PageLink pageIndex="2" handleSubmit={handleSubmit}>
-
-						<button type="button" className="previous"
-						        onClick={previousPage}>
-							Previous
-						</button>
-					</PageLink>
-
+					<ButtonPrevious toPage="2" onClick={previousPage}/>
 					<button type="submit" disabled={pristine || submitting}>
 						Submit
 					</button>
