@@ -33,7 +33,7 @@ class WizardFormThirdPage extends Component {
 		const {handleSubmit, previousPage} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<NavBar goToPage={this.submitView}/>
+				<NavBar handleSubmit={this.submitView}/>
 				<div>
 					<label>Favorite Color</label>
 					<Field name="favoriteColor" component={renderColorSelector}/>
@@ -45,10 +45,10 @@ class WizardFormThirdPage extends Component {
 				<DatePicker/>
 
 				<div>
-					<PageLink pageIndex="1" goToPage={handleSubmit}>
+					<PageLink pageIndex="1" handleSubmit={handleSubmit}>
 						<button type="button" className="previous" onClick={previousPage}>Previous</button>
 					</PageLink>
-					<PageLink pageIndex="3" goToPage={handleSubmit}
+					<PageLink pageIndex="3" handleSubmit={handleSubmit}
 							  mySubmit={this.submitView}>
 						<button className="next">Next</button>
 					</PageLink>

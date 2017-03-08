@@ -3,7 +3,7 @@ import PageLink from "./PageLink.jsx"
 
 const NavBar = (props) => (
 	<p>
-		<PageLink pageIndex="0" goToPage={() => props.goToPage("0")}>
+		<PageLink pageIndex="0" handleSubmit={() => props.handleSubmit("0")}>
 			0
 		</PageLink>
 		<PageLink pageIndex="1">

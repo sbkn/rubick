@@ -22,10 +22,10 @@ class WizardFormSummaryPage extends Component {
 
 		return (
 			<form onSubmit={handleSubmit(this.submitForm)}>
-				<NavBar goToPage={this.submitView}/>
+				<NavBar handleSubmit={this.submitView}/>
 				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
 				<div>
-					<PageLink pageIndex="2" goToPage={handleSubmit}>
+					<PageLink pageIndex="2" handleSubmit={handleSubmit}>
 
 						<button type="button" className="previous"
 						        onClick={previousPage}>

@@ -1,10 +1,10 @@
 import React from "react";
 import {Link} from "react-router";
 
-const PageLink = ({pageIndex, goToPage, mySubmit, children}) => (
+const PageLink = ({pageIndex, handleSubmit, mySubmit, children}) => (
 	<Link
 		to={pageIndex}
-		onClick={goToPage && mySubmit ? goToPage(mySubmit) : null}
+		onClick={handleSubmit && mySubmit ? handleSubmit(mySubmit) : null}
 		activeStyle={{
 			textDecoration: "none",
 			color: "black"
