@@ -7,10 +7,6 @@ import {Router, Route, browserHistory} from "react-router";
 
 class WizardForm extends Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 
 		return (
