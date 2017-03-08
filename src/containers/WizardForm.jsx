@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from "react"
+import React, {Component} from "react"
 import WizardFormFirstPage from "./WizardFormFirstPage.jsx"
 import WizardFormSecondPage from "./WizardFormSecondPage.jsx"
 import WizardFormThirdPage from "./WizardFormThirdPage.jsx"
@@ -9,25 +9,6 @@ class WizardForm extends Component {
 
 	constructor(props) {
 		super(props);
-		this.nextPage = this.nextPage.bind(this);
-		this.previousPage = this.previousPage.bind(this);
-		this.goToPage = this.goToPage.bind(this);
-		this.state = {
-			page: 0
-		};
-	}
-
-	nextPage() {
-		this.setState({page: this.state.page + 1})
-	}
-
-	previousPage() {
-		this.setState({page: this.state.page - 1})
-	}
-
-	goToPage(pageNumber) {
-		console.log("Will not validate anything! THIS IS A MOCK!");
-		this.setState({page: pageNumber});
 	}
 
 	render() {
