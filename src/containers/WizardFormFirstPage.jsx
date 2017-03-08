@@ -27,7 +27,7 @@ class WizardFormFirstPage extends Component {
 	clearConditionalText() {
 		this.props.dispatch({
 			type: "CLEAR_CONDITIONAL_FIELD",
-			payload: "conditionalText"
+			payload: ["conditionalText"]
 		});
 	}
 

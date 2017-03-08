@@ -10,17 +10,20 @@ const reducers = {
 		wizard: (state, action) => {
 			switch (action.type) {
 				case "CLEAR_CONDITIONAL_FIELD":
-					return {
+					const newState = {
 						...state,
 						values: {
-							...state.values,
-							[action.payload]: "" // <----- clear value
+							...state.values
 						},
 						fields: {
-							...state.fields,
-							[action.payload]: "" // <----- clear field state, too (touched, etc.)
+							...state.fields
 						}
 					};
+					action.payload.map(fieldName => {
+						newState.values[fieldName] = "";
+						newState.fields[fieldName] = "";
+					});
+					return newState;
 				default:
 					return state
 			}
