@@ -44,7 +44,7 @@ class WizardFormFirstPage extends Component {
 		const {handleSubmit, isFetching, wasCustomer} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<NavBar handleSubmit={this.submitView}/>
+				<NavBar handleSubmit={handleSubmit} mySubmit={this.submitView}/>
 				<WasCustomer/>
 				{wasCustomer === "true" && <Field name="conditionalText" type="text"
 				                                  component={renderField}
