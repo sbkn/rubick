@@ -50,7 +50,7 @@ class WizardFormThirdPage extends Component {
 
 				<div>
 					<ButtonPrevious toPage="1" onClick={previousPage}/>
-					<ButtonNext toPage="3" handleSubmit={handleSubmit} mySubmit={this.submitView}/>
+					<ButtonNext toPage="3" handleSubmit={handleSubmit} customSubmit={this.submitView}/>
 				</div>
 			</form>
 		)

@@ -15,7 +15,7 @@ class NavBar extends Component {
 			return (
 				<PageLink pageIndex={page.path}
 				          handleSubmit={handleSubmit}
-				          mySubmit={() => router.push(page.path)}
+				          customSubmit={() => router.push(page.path)}
 				          key={page.path}
 				>
 					{page.path}

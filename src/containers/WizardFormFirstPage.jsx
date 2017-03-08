@@ -11,7 +11,6 @@ import NavBar from "./NavBar.jsx";
 import ButtonNext from "../components/ButtonNext.jsx";
 
 
-
 class WizardFormFirstPage extends Component {
 
 	constructor(props) {
@@ -63,7 +62,7 @@ class WizardFormFirstPage extends Component {
 				<div>
 					<ButtonNext toPage="1"
 					            handleSubmit={handleSubmit}
-					            mySubmit={this.submitView}
+					            customSubmit={this.submitView}
 					            disabled={isFetching ? "disabled" : ""}
 					/>
 				</div>

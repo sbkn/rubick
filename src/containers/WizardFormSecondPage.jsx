@@ -31,7 +31,7 @@ class WizardFormSecondPage extends Component {
 
 				<div>
 					<ButtonPrevious toPage="0" onClick={previousPage}/>
-					<ButtonNext toPage="2" handleSubmit={handleSubmit} mySubmit={this.submitView}/>
+					<ButtonNext toPage="2" handleSubmit={handleSubmit} customSubmit={this.submitView}/>
 				</div>
 			</form>
 		)
