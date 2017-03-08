@@ -33,7 +33,8 @@ class WizardFormThirdPage extends Component {
 		const {handleSubmit, previousPage} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<NavBar handleSubmit={this.submitView}/>
+				<NavBar handleSubmit={handleSubmit} mySubmit={this.submitView}/>
+
 				<div>
 					<label>Favorite Color</label>
 					<Field name="favoriteColor" component={renderColorSelector}/>
