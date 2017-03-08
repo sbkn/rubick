@@ -11,10 +11,10 @@ class WizardFormSecondPage extends Component {
 
 	constructor(props) {
 		super(props);
-		this.mySubmit = this.mySubmit.bind(this);
+		this.submitView = this.submitView.bind(this);
 	}
 
-	mySubmit() {
+	submitView() {
 		this.props.router.push("/2");
 	}
 
@@ -22,7 +22,7 @@ class WizardFormSecondPage extends Component {
 		const {handleSubmit, previousPage} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<NavBar goToPage={this.mySubmit}/>
+				<NavBar goToPage={this.submitView}/>
 				<Field name="email" type="email" component={renderField} label="Email"/>
 
 				<FieldArray name="expenditures" component={renderExpenditures}/>
@@ -31,8 +31,9 @@ class WizardFormSecondPage extends Component {
 					<PageLink pageIndex="0">
 						<button type="button" className="previous" onClick={previousPage}>Previous</button>
 					</PageLink>
-					<PageLink pageIndex="2" goToPage={handleSubmit} mySubmit={this.mySubmit}>
-						<button type="submit" className="next">Next</button>
+					<PageLink pageIndex="2" goToPage={handleSubmit}
+							  mySubmit={this.submitView}>
+						<button className="next">Next</button>
 					</PageLink>
 
 				</div>

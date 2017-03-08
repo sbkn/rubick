@@ -22,7 +22,7 @@ class WizardFormSummaryPage extends Component {
 
 		return (
 			<form onSubmit={handleSubmit(this.submitForm)}>
-				<NavBar goToPage={this.mySubmit}/>
+				<NavBar goToPage={this.submitView}/>
 				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
 				<div>
 					<PageLink pageIndex="2" goToPage={handleSubmit}>

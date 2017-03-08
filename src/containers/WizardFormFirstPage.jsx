@@ -16,7 +16,7 @@ class WizardFormFirstPage extends Component {
 	constructor(props) {
 		super(props);
 		this.clearConditionalText = this.clearConditionalText.bind(this);
-		this.mySubmit = this.mySubmit.bind(this);
+		this.submitView = this.submitView.bind(this);
 	}
 
 	componentWillMount() {
@@ -36,7 +36,7 @@ class WizardFormFirstPage extends Component {
 			this.clearConditionalText();
 	}
 
-	mySubmit() {
+	submitView() {
 		this.props.router.push("/1");
 	}
 
@@ -44,7 +44,7 @@ class WizardFormFirstPage extends Component {
 		const {handleSubmit, isFetching, wasCustomer} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<NavBar goToPage={this.mySubmit}/>
+				<NavBar goToPage={this.submitView}/>
 				<WasCustomer/>
 				{wasCustomer === "true" && <Field name="conditionalText" type="text"
 				                                  component={renderField}
@@ -60,8 +60,9 @@ class WizardFormFirstPage extends Component {
 				       label="Phone number" normalize={normalizePhoneNumber}
 				       disabled={isFetching ? "disabled" : ""}/>
 				<div>
-					<PageLink pageIndex="1" goToPage={handleSubmit} mySubmit={this.mySubmit}>
-						<button type="submit" className="next"
+					<PageLink pageIndex="1" goToPage={handleSubmit}
+							  mySubmit={this.submitView}>
+						<button className="next"
 						        disabled={isFetching ? "disabled" : ""}>Next
 						</button>
 					</PageLink>

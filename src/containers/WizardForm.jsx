@@ -11,7 +11,7 @@ class WizardForm extends Component {
 
 		return (
 			<div>
-				<Router history={browserHistory}>
+				<Router history={ browserHistory }>
 					<Route path="/" component={WizardFormFirstPage}/>
 					<Route path="/0" component={WizardFormFirstPage}/>
 					<Route path="/1" component={WizardFormSecondPage}/>
