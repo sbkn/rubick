@@ -10,13 +10,13 @@ class NavBar extends Component {
 	}
 
 	render() {
-		const {handleSubmit, mySubmit} = this.props;
+		const {handleSubmit, router} = this.props;
 		const pages = PAGES.map(page => {
 			return (
 				<PageLink pageIndex={page.path}
-						  handleSubmit={handleSubmit}
-						  mySubmit={mySubmit}
-						  key={page.path}
+				          handleSubmit={handleSubmit}
+				          mySubmit={() => router.push(page.path)}
+				          key={page.path}
 				>
 					{page.path}
 				</PageLink>

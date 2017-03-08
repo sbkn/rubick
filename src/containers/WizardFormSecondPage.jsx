@@ -19,10 +19,10 @@ class WizardFormSecondPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, previousPage} = this.props;
+		const {handleSubmit, previousPage, router} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
-				<NavBar handleSubmit={handleSubmit} mySubmit={this.submitView}/>
+				<NavBar handleSubmit={handleSubmit} router={router}/>
 
 				<Field name="email" type="email" component={renderField} label="Email"/>
 

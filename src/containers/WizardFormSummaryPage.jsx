@@ -18,11 +18,11 @@ class WizardFormSummaryPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber} = this.props;
+		const {handleSubmit, pristine, previousPage, submitting, fullName, phoneNumber, router} = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(this.submitForm)}>
-				<NavBar handleSubmit={handleSubmit} mySubmit={this.submitView}/>
+				<NavBar handleSubmit={handleSubmit} router={router}/>
 
 				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
 				<div>
