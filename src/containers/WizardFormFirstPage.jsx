@@ -9,13 +9,13 @@ import FetchDataStatus from "../components/FetchDataStatus.jsx";
 import fetchData from "../actions/fetchData.jsx";
 import NavBar from "./NavBar.jsx";
 import ButtonNext from "../components/ButtonNext.jsx";
+import purgeFieldValues from "../purgeFieldValues.js"
 
 
 class WizardFormFirstPage extends Component {
 
 	constructor(props) {
 		super(props);
-		this.clearConditionalText = this.clearConditionalText.bind(this);
 		this.submitView = this.submitView.bind(this);
 	}
 
@@ -24,16 +24,13 @@ class WizardFormFirstPage extends Component {
 			this.props.fetchData();
 	}
 
-	clearConditionalText() {
-		this.props.dispatch({
-			type: "CLEAR_CONDITIONAL_FIELDS",
-			payload: ["conditionalText"]
-		});
-	}
-
 	componentWillReceiveProps(nextProps) {
+		const fieldsToPurge = [];
+
 		if (nextProps.wasCustomer === "false")
-			this.clearConditionalText();
+			fieldsToPurge.push("conditionalText");
+
+		purgeFieldValues(this.props.dispatch, fieldsToPurge);
 	}
 
 	submitView() {
