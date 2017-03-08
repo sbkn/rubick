@@ -19,6 +19,13 @@ const prefillReducer = (state = initialState, action) => {
 				fetching: false,
 				fetched: true
 			};
+		case "FETCH_DATA_FAILED":
+			return {
+				...state,
+				error: action.error,
+				fetching: false,
+				fetched: true
+			};
 		default:
 			return state
 	}

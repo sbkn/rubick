@@ -15,7 +15,8 @@ export default function fetchData() {
 				dispatch({type: "FETCH_DATA_FINISH", data: response.data[0]});
 			})
 			.catch(error => {
-				console.error(error);
+				console.error("FETCHING DATA FAILED: ", error);
+				dispatch({type: "FETCH_DATA_FAILED", error: error});
 			});
 		/*})
 		 .catch(error => {

@@ -1,7 +1,7 @@
 # rubick
 Forms with **React** &amp; **Redux** using **redux-forms** and **react-router**.
 
-Run:
+Runnig this project:
 
     npm install
     npm start

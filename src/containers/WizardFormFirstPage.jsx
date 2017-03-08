@@ -5,6 +5,7 @@ import validate from "../validate.js";
 import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
 import WasCustomer from "../components/WasCustomer.jsx";
+import FetchDataStatus from "../components/FetchDataStatus.jsx";
 import PageLink from "./PageLink.jsx";
 import fetchData from "../actions/fetchData.jsx";
 import NavBar from "./NavBar.jsx";
@@ -41,7 +42,7 @@ class WizardFormFirstPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, isFetching, wasCustomer, router} = this.props;
+		const {handleSubmit, isFetching, wasCustomer, fetchDataError, router} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
 				<NavBar handleSubmit={handleSubmit} router={router}/>
@@ -63,11 +64,12 @@ class WizardFormFirstPage extends Component {
 					<PageLink pageIndex="1" handleSubmit={handleSubmit}
 							  mySubmit={this.submitView}>
 						<button className="next"
-						        disabled={isFetching ? "disabled" : ""}>Next
+						        disabled={isFetching ? "disabled" : ""}>
+							Next
 						</button>
 					</PageLink>
 				</div>
-				<label>{isFetching ? "Fetching data.." : "Fetched data successfully." }</label>
+				<FetchDataStatus isFetching={isFetching} error={fetchDataError}/>
 			</form>
 		)
 	};
@@ -97,7 +99,8 @@ function mapStateToProps(state) {
 	return {
 		initialValues: state.prefill.data,
 		isFetching: state.prefill.fetching,
-		hasFetched: state.prefill.fetched
+		hasFetched: state.prefill.fetched,
+		fetchDataError: state.prefill.error
 	}
 }
 
