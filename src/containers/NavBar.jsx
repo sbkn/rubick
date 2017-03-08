@@ -1,25 +1,33 @@
-import React from "react"
-import PageLink from "./PageLink.jsx"
+import React, {Component} from "react";
+import PageLink from "./PageLink.jsx";
 
-const NavBar = (props) => (
-	<p>
-		<PageLink pageIndex="0" handleSubmit={props.handleSubmit}
-				  mySubmit={props.mySubmit}>
-			0
-		</PageLink>
-		<PageLink pageIndex="1" handleSubmit={props.handleSubmit}
-				  mySubmit={props.mySubmit}>
-			1
-		</PageLink>
-		<PageLink pageIndex="2" handleSubmit={props.handleSubmit}
-				  mySubmit={props.mySubmit}>
-			2
-		</PageLink>
-		<PageLink pageIndex="3" handleSubmit={props.handleSubmit}
-				  mySubmit={props.mySubmit}>
-			3
-		</PageLink>
-	</p>
-);
+const PAGES = [{path: "0"}, {path: "1"}, {path: "2"}, {path: "3"}];
+
+class NavBar extends Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		const {handleSubmit, mySubmit} = this.props;
+		const pages = PAGES.map(page => {
+			return (
+				<PageLink pageIndex={page.path}
+						  handleSubmit={handleSubmit}
+						  mySubmit={mySubmit}
+						  key={page.path}
+				>
+					{page.path}
+				</PageLink>
+			)
+		});
+		return (
+			<p>
+				{pages}
+			</p>
+		);
+	}
+}
 
 export default NavBar;
