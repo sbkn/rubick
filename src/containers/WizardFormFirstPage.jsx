@@ -3,7 +3,7 @@ import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
-import normalizePhoneNumber from "../normalizePhoneNumber.jsx";
+import normalizePhoneNumber from "../normalizePhoneNumber.js";
 import WasCustomer from "../components/WasCustomer.jsx";
 import FetchDataStatus from "../components/FetchDataStatus.jsx";
 import fetchData from "../actions/fetchData.jsx";

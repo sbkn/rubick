@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {reduxForm, formValueSelector} from "redux-form";
-import {connect} from "react-redux";
 import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
 import NavBar from "./NavBar.jsx";
@@ -20,13 +19,13 @@ class WizardFormSummaryPage extends Component {
 
 	render() {
 		const {handleSubmit, pristine, previousPage, submitting, router} = this.props;
-		const {fullName, phoneNumber} = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(this.submitForm)}>
+
 				<NavBar handleSubmit={handleSubmit} router={router}/>
 
-				<SummaryPage fullName={fullName} phoneNumber={phoneNumber}/>
+				<SummaryPage/>
 
 				<div>
 					<ButtonPrevious toPage="2" onClick={previousPage}/>
@@ -39,12 +38,6 @@ class WizardFormSummaryPage extends Component {
 	}
 }
 
-function formatPhoneNumber(value) {
-	if (!value) return "";
-	value = value.replace(/-/g, "");
-	return `(${value.substr(0, 3)})${value.substr(3)}`;
-}
-
 WizardFormSummaryPage = reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
@@ -52,17 +45,5 @@ WizardFormSummaryPage = reduxForm({
 	enableReinitialize: true,
 	validate
 })(WizardFormSummaryPage);
-
-const selector = formValueSelector("wizard");
-
-WizardFormSummaryPage = connect(
-	state => {
-		const {firstName, lastName, phoneNumber} = selector(state, "firstName", "lastName", "phoneNumber");
-		return {
-			fullName: `${firstName || ""} ${lastName || ""}`,
-			phoneNumber: formatPhoneNumber(phoneNumber)
-		}
-	}
-)(WizardFormSummaryPage);
 
 export default WizardFormSummaryPage;

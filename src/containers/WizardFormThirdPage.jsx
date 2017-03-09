@@ -8,7 +8,6 @@ import ButtonNext from "../components/ButtonNext.jsx";
 import ButtonPrevious from "../components/ButtonPrevious.jsx";
 
 
-
 const colors = ["Red", "Orange", "Yellow"];
 
 const renderColorSelector = ({input, meta: {touched, error}}) => (
