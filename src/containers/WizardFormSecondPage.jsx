@@ -20,7 +20,7 @@ class WizardFormSecondPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, previousPage, router} = this.props;
+		const {handleSubmit, router} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
 				<NavBar handleSubmit={handleSubmit} router={router}/>
