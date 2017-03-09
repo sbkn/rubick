@@ -1,24 +1,14 @@
-import React, {Component} from "react"
-import {Field, reduxForm} from "redux-form"
-import validate from "../validate.js"
+import React, {Component} from "react";
+import {Field, reduxForm} from "redux-form";
+import validate from "../validate.js";
 import DatePicker from "../components/DatePicker.jsx";
 import renderField from "../renderField.jsx";
+import renderSelector from "../renderSelector.jsx";
 import NavBar from "./NavBar.jsx";
 import ButtonNext from "../components/ButtonNext.jsx";
 import ButtonPrevious from "../components/ButtonPrevious.jsx";
 
-
 const colors = ["Red", "Orange", "Yellow"];
-
-const renderColorSelector = ({input, meta: {touched, error}}) => (
-	<div>
-		<select {...input}>
-			<option value="">Select a color...</option>
-			{colors.map(val => <option value={val} key={val}>{val}</option>)}
-		</select>
-		{touched && error && <span className="error-label">{error}</span>}
-	</div>
-);
 
 class WizardFormThirdPage extends Component {
 
@@ -38,18 +28,20 @@ class WizardFormThirdPage extends Component {
 				<NavBar handleSubmit={handleSubmit} router={router}/>
 
 				<div>
-					<label>Favorite Color</label>
-					<Field name="favoriteColor" component={renderColorSelector}/>
+					<Field name="favoriteColor" component={renderSelector}
+						   label="Favorite Color"
+						   options={colors}/>
 				</div>
 
 				<Field name="employed" type="checkbox" component={renderField}
-				       label="Employed"/>
+					   label="Employed"/>
 
 				<DatePicker/>
 
 				<div>
 					<ButtonPrevious toPage="1" onClick={previousPage}/>
-					<ButtonNext toPage="3" handleSubmit={handleSubmit} customSubmit={this.submitView}/>
+					<ButtonNext toPage="3" handleSubmit={handleSubmit}
+								customSubmit={this.submitView}/>
 				</div>
 			</form>
 		)
