@@ -6,7 +6,7 @@ import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.js";
 import WasCustomer from "../components/WasCustomer.jsx";
 import FetchDataStatus from "../components/FetchDataStatus.jsx";
-import fetchData from "../actions/fetchData.jsx";
+import fetchData from "../actions/fetchData.js";
 import NavBar from "./NavBar.jsx";
 import ButtonNext from "../components/ButtonNext.jsx";
 

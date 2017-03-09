@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Field, formValueSelector} from "redux-form";
 import {connect} from "react-redux";
 import renderField from "../renderField.jsx";
-import purgeFieldValues from "../purgeFieldValues.js"
+import purgeFieldValues from "../actions/purgeFieldValues.js"
 
 const renderError = ({meta: {touched, error}}) => touched && error ?
 	<span>{error}</span> : false;
