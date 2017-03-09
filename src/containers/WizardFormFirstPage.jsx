@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Field, reduxForm, formValueSelector} from "redux-form";
+import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import validate from "../validate.js";
 import renderField from "../renderField.jsx";
@@ -9,8 +9,6 @@ import FetchDataStatus from "../components/FetchDataStatus.jsx";
 import fetchData from "../actions/fetchData.jsx";
 import NavBar from "./NavBar.jsx";
 import ButtonNext from "../components/ButtonNext.jsx";
-import purgeFieldValues from "../purgeFieldValues.js"
-
 
 class WizardFormFirstPage extends Component {
 
@@ -24,38 +22,31 @@ class WizardFormFirstPage extends Component {
 			this.props.fetchData();
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const fieldsToPurge = [];
-
-		if (nextProps.wasCustomer === "false")
-			fieldsToPurge.push("conditionalText");
-
-		purgeFieldValues(this.props.dispatch, fieldsToPurge);
-	}
-
 	submitView() {
 		this.props.router.push("/1");
 	}
 
 	render() {
-		const {handleSubmit, isFetching, wasCustomer, fetchDataError, router} = this.props;
+		const {handleSubmit, isFetching, fetchDataError, router} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
+
 				<NavBar handleSubmit={handleSubmit} router={router}/>
-				<WasCustomer/>
-				{wasCustomer === "true" && <Field name="conditionalText" type="text"
-				                                  component={renderField}
-				                                  label="Why are you here?"
-				                                  disabled={isFetching ? "disabled" : ""}/>}
+
+				<WasCustomer disabled={isFetching ? "disabled" : ""}/>
+
 				<Field name="firstName" type="text" component={renderField}
 				       label="First Name"
 				       disabled={isFetching ? "disabled" : ""}/>
+
 				<Field name="lastName" type="text" component={renderField}
 				       label="Last Name"
 				       disabled={isFetching ? "disabled" : ""}/>
+
 				<Field name="phoneNumber" type="text" component={renderField}
 				       label="Phone number" normalize={normalizePhoneNumber}
 				       disabled={isFetching ? "disabled" : ""}/>
+
 				<div>
 					<ButtonNext toPage="1"
 					            handleSubmit={handleSubmit}
@@ -63,6 +54,7 @@ class WizardFormFirstPage extends Component {
 					            disabled={isFetching ? "disabled" : ""}
 					/>
 				</div>
+
 				<FetchDataStatus isFetching={isFetching} error={fetchDataError}/>
 			</form>
 		)
@@ -76,18 +68,6 @@ WizardFormFirstPage = reduxForm({
 	enableReinitialize: true,
 	validate
 })(WizardFormFirstPage);
-
-
-const selector = formValueSelector("wizard");
-
-WizardFormFirstPage = connect(
-	state => {
-		const wasCustomer = selector(state, "wasCustomer");
-		return {
-			wasCustomer
-		}
-	}
-)(WizardFormFirstPage);
 
 function mapStateToProps(state) {
 	return {
