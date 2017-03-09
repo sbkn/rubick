@@ -22,7 +22,7 @@ const renderExpenditures = ({fields, meta: {error}}) => (
 					label={`Expenditure #${index + 1}`}/>
 			</li>
 		)}
-		{error && <li className="error">{error}</li>}
+		{error && <li className="error-label">{error}</li>}
 	</ul>
 );
 

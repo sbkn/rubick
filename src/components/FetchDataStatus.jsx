@@ -5,7 +5,8 @@ let FetchDataStatus = (props) => {
 	return (
 		<div>
 			{!error && <label>{isFetching ? "Fetching data.." : "Fetched data successfully." }</label>}
-			{!isFetching && error && <label>{"Fetching data failed! Error: " + error }</label>}
+			{!isFetching && error && <label
+				className="error-label">{"Fetching data failed! " + error }</label>}
 		</div>
 	)
 };

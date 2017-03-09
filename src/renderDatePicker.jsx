@@ -15,7 +15,7 @@ const renderDatePicker = ({input, placeholder, defaultValue, meta: {touched, err
 			excludeDates={[moment().add(2, "days"), moment().subtract(1, "days")]}
 			monthsShown={2}
 		/>
-		{touched && error && <span>{error}</span>}
+		{touched && error && <span className="error-label">{error}</span>}
 	</div>
 );
 

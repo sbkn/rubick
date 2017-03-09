@@ -16,7 +16,7 @@ const renderColorSelector = ({input, meta: {touched, error}}) => (
 			<option value="">Select a color...</option>
 			{colors.map(val => <option value={val} key={val}>{val}</option>)}
 		</select>
-		{touched && error && <span>{error}</span>}
+		{touched && error && <span className="error-label">{error}</span>}
 	</div>
 );
 
