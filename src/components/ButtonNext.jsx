@@ -4,7 +4,7 @@ import PageLink from "../containers/PageLink.jsx";
 let ButtonNext = (props) => {
 	const {handleSubmit, customSubmit, toPage, disabled} = props;
 	return (
-		<PageLink pageIndex={toPage}
+		<PageLink toPath={toPage}
 		          handleSubmit={handleSubmit}
 		          customSubmit={customSubmit}
 		>

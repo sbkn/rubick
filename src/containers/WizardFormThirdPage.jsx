@@ -22,7 +22,7 @@ class WizardFormThirdPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, previousPage, router} = this.props;
+		const {handleSubmit, router} = this.props;
 		return (
 			<form onSubmit={handleSubmit}>
 				<NavBar handleSubmit={handleSubmit} router={router}/>
@@ -39,8 +39,8 @@ class WizardFormThirdPage extends Component {
 				<DatePicker/>
 
 				<div>
-					<ButtonPrevious toPage="1" onClick={previousPage}/>
-					<ButtonNext toPage="3" handleSubmit={handleSubmit}
+					<ButtonPrevious toPage="1"/>
+					<ButtonNext handleSubmit={handleSubmit}
 								customSubmit={this.submitView}/>
 				</div>
 			</form>

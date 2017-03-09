@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {reduxForm, formValueSelector} from "redux-form";
+import {reduxForm} from "redux-form";
 import validate from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
 import NavBar from "./NavBar.jsx";
@@ -18,7 +18,7 @@ class WizardFormSummaryPage extends Component {
 	}
 
 	render() {
-		const {handleSubmit, pristine, previousPage, submitting, router} = this.props;
+		const {handleSubmit, pristine, submitting, router} = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(this.submitForm)}>
@@ -28,7 +28,7 @@ class WizardFormSummaryPage extends Component {
 				<SummaryPage/>
 
 				<div>
-					<ButtonPrevious toPage="2" onClick={previousPage}/>
+					<ButtonPrevious toPage="2"/>
 					<button type="submit" disabled={pristine || submitting}>
 						Submit
 					</button>

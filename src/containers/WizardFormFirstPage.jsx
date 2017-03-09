@@ -48,8 +48,7 @@ class WizardFormFirstPage extends Component {
 				       disabled={isFetching ? "disabled" : ""}/>
 
 				<div>
-					<ButtonNext toPage="1"
-					            handleSubmit={handleSubmit}
+					<ButtonNext handleSubmit={handleSubmit}
 					            customSubmit={this.submitView}
 					            disabled={isFetching ? "disabled" : ""}
 					/>

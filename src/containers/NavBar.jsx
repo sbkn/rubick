@@ -13,7 +13,7 @@ class NavBar extends Component {
 		const {handleSubmit, router} = this.props;
 		const pages = PAGES.map(page => {
 			return (
-				<PageLink pageIndex={page.path}
+				<PageLink toPath={page.path}
 				          handleSubmit={handleSubmit}
 				          customSubmit={() => router.push(page.path)}
 				          key={page.path}
@@ -29,5 +29,10 @@ class NavBar extends Component {
 		);
 	}
 }
+
+NavBar.propTypes = {
+	router: React.PropTypes.object.isRequired,
+	handleSubmit: React.PropTypes.func.isRequired
+};
 
 export default NavBar;

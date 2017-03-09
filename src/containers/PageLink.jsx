@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from "react-router";
 
-const PageLink = ({pageIndex, handleSubmit, customSubmit, children}) => (
+const PageLink = ({toPath, handleSubmit, customSubmit, children}) => (
 	<Link
-		to={pageIndex}
+		to={toPath}
 		onClick={handleSubmit && customSubmit ? handleSubmit(customSubmit) : null}
 		activeStyle={{
 			textDecoration: "none",

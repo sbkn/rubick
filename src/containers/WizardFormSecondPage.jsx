@@ -30,8 +30,8 @@ class WizardFormSecondPage extends Component {
 				<FieldArray name="expenditures" component={renderExpenditures}/>
 
 				<div>
-					<ButtonPrevious toPage="0" onClick={previousPage}/>
-					<ButtonNext toPage="2" handleSubmit={handleSubmit} customSubmit={this.submitView}/>
+					<ButtonPrevious toPage="0"/>
+					<ButtonNext handleSubmit={handleSubmit} customSubmit={this.submitView}/>
 				</div>
 			</form>
 		)
