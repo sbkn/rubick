@@ -61,6 +61,12 @@ class WizardFormFirstPage extends Component {
 	};
 }
 
+WizardFormFirstPage.propTypes = {
+	router: React.PropTypes.object.isRequired,
+	fetchData: React.PropTypes.func.isRequired,
+	handleSubmit: React.PropTypes.func.isRequired
+};
+
 WizardFormFirstPage = reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,

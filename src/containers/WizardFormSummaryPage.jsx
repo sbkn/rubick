@@ -38,6 +38,11 @@ class WizardFormSummaryPage extends Component {
 	}
 }
 
+WizardFormSummaryPage.propTypes = {
+	router: React.PropTypes.object.isRequired,
+	handleSubmit: React.PropTypes.func.isRequired
+};
+
 WizardFormSummaryPage = reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,

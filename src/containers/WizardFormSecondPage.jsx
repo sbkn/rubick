@@ -38,6 +38,11 @@ class WizardFormSecondPage extends Component {
 	}
 }
 
+WizardFormSecondPage.propTypes = {
+	router: React.PropTypes.object.isRequired,
+	handleSubmit: React.PropTypes.func.isRequired
+};
+
 export default reduxForm({
 	form: "wizard",
 	destroyOnUnmount: false,
