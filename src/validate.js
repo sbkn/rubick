@@ -1,4 +1,4 @@
-const validate = values => {
+export const validate = values => {
 	const errors = {};
 	if (!values.firstName) {
 		errors.firstName = "Required"
@@ -20,4 +20,5 @@ const validate = values => {
 	return errors
 };
 
-export default validate;
+const minLength = (min) => (value) => value && value.length < min ? "Must be at least 2 characters long" : undefined;
+export const minLength2 = minLength(2);

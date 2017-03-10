@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Field, reduxForm} from "redux-form";
-import validate from "../validate.js";
+import {validate} from "../validate.js";
 import DatePicker from "../components/DatePicker.jsx";
 import renderField from "../renderField.jsx";
 import renderSelector from "../renderSelector.jsx";

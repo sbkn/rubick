@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {reduxForm} from "redux-form";
-import validate from "../validate.js";
+import {validate} from "../validate.js";
 import SummaryPage from "../components/SummaryPage.jsx";
 import NavBar from "./NavBar.jsx";
 import ButtonPrevious from "../components/ButtonPrevious.jsx";

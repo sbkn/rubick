@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
-import validate from "../validate.js";
+import {validate} from "../validate.js";
+import {minLength2} from "../validate.js";
 import renderField from "../renderField.jsx";
 import normalizePhoneNumber from "../normalizePhoneNumber.js";
 import WasCustomer from "../components/WasCustomer.jsx";
@@ -9,6 +10,7 @@ import FetchDataStatus from "../components/FetchDataStatus.jsx";
 import fetchData from "../actions/fetchData.js";
 import NavBar from "./NavBar.jsx";
 import ButtonNext from "../components/ButtonNext.jsx";
+
 
 class WizardFormFirstPage extends Component {
 
@@ -37,6 +39,7 @@ class WizardFormFirstPage extends Component {
 
 				<Field name="firstName" type="text" component={renderField}
 				       label="First Name"
+				       validate={minLength2}
 				       disabled={isFetching ? "disabled" : ""}/>
 
 				<Field name="lastName" type="text" component={renderField}

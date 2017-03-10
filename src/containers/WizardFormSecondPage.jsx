@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Field, FieldArray, reduxForm} from "redux-form";
-import validate from "../validate.js";
+import {validate} from "../validate.js";
 import renderField from "../renderField.jsx";
 import renderExpenditures from "../renderExpenditures.jsx";
 import NavBar from "./NavBar.jsx";
