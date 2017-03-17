@@ -4,8 +4,8 @@
   "description": "Testing redux-forms",
   "scripts": {
     "lint": "eslint src",
-	"start": "node server.js",
-	"build": "webpack --progress -p"
+    "start": "node server.js",
+    "build": "webpack --progress -p"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-polyfill": "^6.23.0",
     "moment": "^2.17.1",
     "react": "15.2.1",
     "react-datepicker": "^0.41.1",
